@@ -15,10 +15,50 @@ output:
       countIncrementalSlides: false
       ratio: "16:9"
 ---
-
 class: middle, center, inverse
 
 # Introdução ao Deep Learning com R
 
 ### Curso-R
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(eval = TRUE, echo = FALSE, 
+                      dpi = 96, fig.height = 4.7, 
+                      fig.width = 10)
+library(tidyverse)
+```
+
+
+---
+
+## Nesse curso vamos falar de
+
+TODO
+
+---
+
+## Regressão Linear
+
+Prevendo o preço de uma casa a partir do tamanho em metros
+quadrados.
+
+```{r}
+df <- tibble(
+  m2 = rgamma(n = 100, scale = 5, shape = 20),
+  preco = (7200 + rnorm(n = 100, sd = 800)) * m2 
+)
+
+ggplot(df, aes(x = m2, y = preco)) +
+  geom_point() +
+  coord_cartesian(ylim = c(0, NA)) +
+  scale_y_continuous(
+    name = "Preço (em R$)",
+    labels = scales::dollar_format(prefix = "R$", big.mark = ".", decimal.mark = ",")
+    
+    ) +
+  scale_x_continuous(name = "Área (em mˆ2)")
+```
+
+
+
 
