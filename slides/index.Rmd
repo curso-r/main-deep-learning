@@ -24,7 +24,7 @@ class: middle, center, inverse
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(eval = TRUE, echo = FALSE, 
                       dpi = 96, fig.height = 4.7, 
-                      fig.width = 10)
+                      fig.width = 10, fig.retina = 3)
 library(tidyverse)
 ```
 
