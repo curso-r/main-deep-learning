@@ -1,0 +1,24 @@
+---
+title: "Introdução ao Deep Learning com R"
+author: "Daniel Falbel"
+institute: "RStudio, Inc."
+date: "2020-01-28 (RStudio conf)"
+output:
+  xaringan::moon_reader:
+    css: ["default", "theme.css"]
+    lib_dir: libs
+    seal: false
+    nature:
+      beforeInit: "macro.js"
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      ratio: "16:9"
+---
+
+class: middle, center, inverse
+
+# Introdução ao Deep Learning com R
+
+### Curso-R
+

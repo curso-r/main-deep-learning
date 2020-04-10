@@ -1,0 +1,20 @@
+@import url(https://fonts.googleapis.com/css?family=Fira+Code&display=swap);
+
+
+.remark-slide-number {
+  display: none;
+}
+
+.remark-code, .remark-inline-code, .remark-slide-content  { 
+  font-family: 'Fira Code'; 
+  font-size: 22px;
+}
+
+h1, h2, h3 {
+  font-family: 'Fira Code';
+}
+
+.remark-slide-content h1 {
+    font-size: 50px;
+}
+
