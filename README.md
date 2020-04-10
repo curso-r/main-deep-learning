@@ -5,9 +5,9 @@ bastante práticas e envolvem tempo para resolução de exercícios.
 
 - Aula 1: Introdução ao Deep Learning
 - Aula 2: Redes neurais convolucionais
-- Aula 3: Modelos pré-treinados & Segmentação de imagens
+- Aula 3: Modelos pré-treinados & Residual networks
 - Aula 4: Redes neurais recorrentes & LSTM
-- Aula 5: Modelos seq2seq
+- Aula 5: Pre-trained word embeddings
 - Aula 6: Mais exemplos/ Dúvidas
 
 
