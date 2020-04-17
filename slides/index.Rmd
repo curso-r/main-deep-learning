@@ -37,6 +37,11 @@ TODO
 
 ---
 
+## O que é Deep learning?
+
+
+---
+
 ## Regressão Linear
 
 Prevendo o preço de uma casa a partir do tamanho em metros
