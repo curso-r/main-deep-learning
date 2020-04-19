@@ -19,22 +19,29 @@ for(i in 1:n) {
 
 # Model ------------------------------------------------------------
 
-tensorflow::tf$keras$backend$set_floatx("float64")
+# use float64 for comparison with R
+tensorflow::tf$keras$backend$set_floatx("float64") 
 
 input <- layer_input(shape = c(5,1))
 
 output <- input %>% 
-  layer_lstm(units = 1, input_shape = c(5,1), use_bias = FALSE,
-             unit_forget_bias = FALSE,
-             recurrent_activation = "sigmoid"
-             ) %>% 
+  layer_lstm(
+    units = 1, 
+    input_shape = c(5,1), 
+    use_bias = FALSE,
+    unit_forget_bias = FALSE,
+    recurrent_activation = "sigmoid"
+  ) %>% 
   layer_activation("sigmoid")
 
 model <- keras_model(input, output)
 
-model %>% compile(loss = "binary_crossentropy", 
-                  optimizer = "adam",
-                  metrics = "accuracy")
+model %>% compile(
+  loss = "binary_crossentropy", 
+  optimizer = "adam",
+  metrics = "accuracy"
+)
+
 model %>% fit(x = x, y = cresc, epochs = 10)
 
 # Manual calc ------------------------------------------------------
@@ -52,9 +59,9 @@ x_ <- x[1,,]
 
 for (t in 1:5) {
   
-  i     <- sigm(s*w[[2]][1,1] + w[[1]][1,1]*x_[t])
-  f     <- sigm(s*w[[2]][1,2] + w[[1]][1,2]*x_[t])
-  c_hat <- tanh(s*w[[2]][1,3] + w[[1]][1,3]*x_[t])
+  i     <- sigm(w[[2]][1,1]*s + w[[1]][1,1]*x_[t])
+  f     <- sigm(w[[2]][1,2]*s + w[[1]][1,2]*x_[t])
+  c_hat <- tanh(w[[2]][1,3]*s + w[[1]][1,3]*x_[t])
   
   c <- f*c + i*c_hat
   o <- sigm(s*w[[2]][1,4] + w[[1]][1,4]*x_[t])
