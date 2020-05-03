@@ -3,7 +3,7 @@
 n <- 1000
 
 x <- runif(n)
-w <- 0.2
+w <- 0.9
 b <- 0.1
 
 y <- w * x + b
@@ -32,9 +32,9 @@ grad_loss_wrt_b <- function(x, y, y_hat) {
 w_hat <- runif(1)
 b_hat <- 0
 
-lr <- 0.001
+lr <- 0.01
 
-for (step in 1:10) {
+for (step in 1:5000) {
   y_hat <- model(w_hat, b_hat, x)
   w_hat <- w_hat - lr*grad_loss_wrt_w(x, y, y_hat)
   b_hat <- b_hat - lr*grad_loss_wrt_b(x, y, y_hat)

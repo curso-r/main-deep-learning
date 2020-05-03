@@ -64,6 +64,21 @@ ggplot(df, aes(x = m2, y = preco)) +
   scale_x_continuous(name = "Área (em mˆ2)")
 ```
 
+## Grafo de computação
+
+```{r}
+nomnoml::nomnoml(
+  "
+  [x]->[y_hat = wx + b]
+  [w]->[y_hat = wx + b]
+  [b]->[y_hat = wx + b]
+  [y_hat = wx + b]->[loss = (y - y_hat)^2]
+  [y]->[loss = (y - y_hat)^2]
+  "
+)
+```
+
+
 ## SGD (Stochastic gradient descent)
 
 
