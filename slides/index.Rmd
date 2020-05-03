@@ -64,6 +64,7 @@ ggplot(df, aes(x = m2, y = preco)) +
   scale_x_continuous(name = "Área (em mˆ2)")
 ```
 
+## SGD (Stochastic gradient descent)
 
 
 
