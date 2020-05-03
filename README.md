@@ -10,5 +10,7 @@ bastante práticas e envolvem tempo para resolução de exercícios.
 - Aula 5: Pre-trained word embeddings
 - Aula 6: Mais exemplos/ Dúvidas
 
+TODOS:
 
+- fazer slides de backprop baseado em https://remykarem.github.io/backpropagation-demo/
 
