@@ -232,18 +232,92 @@ Fonte: Figura adaptada do Deep Learning with R, Chollet, F. et al.
 
 ---
 
+## Encontrando o mínimo da função de perda
+
+Até agora:
+
+- Vimos que nosso objetivo é minimizar a função de perda.
+- Para isso precisamos encontrar o valor dos pesos que minimiza faz a função de perda ter o valor mínimo possível.
+
+Agora:
+
+- O processo de encontrar o mínimo de uma função é chamado de **otimização**. 
+- Existem diversos algoritmos de otimização. Em geral eles são adequados ou não dependendo da função que você está otimizando.
+- Em Deep Learning usamos algoritmos que são variações do **Gradient Descent** - método de descida do gradiente.
+
+---
+
+## Gradient Descent 
+
+O **gradient descent** diz que se uma função $L(x)$ é diferenciável na vizinhança de um ponto $w$ então $L(x)$ decresce mais rapidamente se você andar de $w$ para uma direção contrária ao gradient de $L$ no ponto $w$. 
+
+Em outras palavras, fazer $w - \nabla L(w)$ é a forma de caminhar o mais rápido possível para o mínimo de $L(x)$.
+
+![:scale 20%](img/700px-Gradient_descent.svg.png)
+
+Fonte: [Gradient Descent](https://en.wikipedia.org/wiki/Gradient_descent)
+
+---
+
+## Gradient descent no exemplo
+
+No nosso exemplo temos: 
+
+$$L(w, b) = \frac{1}{n} \sum_{i=1}^{n} (y_i - w \times x_i - b)^2$$
+
+Então para andar mais rápido para o mínimo de $L$ cada passo de $w$ e $b$ tem que ser calculado da seguinte forma:
+
+$$w_{(i+1)} = w_{(i)} - \frac{\partial L}{\partial w} = w_{(i)} - \frac{1}{n}\sum_{i=1}^{n} (-2 \times x_i)(y_i - w \times x_i -b)$$
+
+$$b_{(i+1)} = b_{(i)} - \frac{\partial L}{\partial b} = b_{(i)} - \frac{1}{n} \sum_{i=1}^{n} (-2)(y_i - w \times x_i -b)$$
+
+**Calma!** vamos dissecar essas fórmulas.
+
+---
+
+
+## Otimizando
+
+Esse é o diagrama geral que vale para os modelos que vamos implementar neste curso.
+
+![:scale 50%](img/Screen Shot 2020-05-09 at 19.17.36.png)
+
+Fonte: Figura adaptada do Deep Learning with R, Chollet, F. et al.
+
+---
+
 ## Grafo de computação
 
-```{r}
-nomnoml::nomnoml(
-  "
-  [x]->[y_hat = wx + b]
-  [w]->[y_hat = wx + b]
-  [b]->[y_hat = wx + b]
-  [y_hat = wx + b]->[loss = (y - y_hat)^2]
-  [y]->[loss = (y - y_hat)^2]
-  "
-)
-```
+TODO: fazer na mão
+
+---
+
+## Grafo de computação
+
+TODO: colocar as contas
+
+---
+
+Fazer no R - exemplo 01
+
+---
 
 ## SGD (Stochastic gradient descent)
+
+---
+
+Fazer no R - exemplo 02
+
+---
+
+## TensorFlow
+
+TODO
+
+---
+
+## Keras
+
+---
+
+Fazer no R - exemplo 03
