@@ -65,6 +65,36 @@ Fonte: [Apr. resultados ILSVRC 2017](http://image-net.org/challenges/talks_2017/
 
 ---
 
+## Por que Deep learning?
+
+- Resultados impressionantes em tradução.
+
+![](img/image00.png)
+
+Fonte: [A Neural Network for Machine Translation, at Production Scale](https://ai.googleblog.com/2016/09/a-neural-network-for-machine.html)
+---
+
+## Por que Deep Learning?
+
+- Resultados em Reinforcement Learning
+
+![:scale 75%](img/unnamed.gif)
+
+Fonte: [AlphaZero: Shedding new light on chess, shogi, and Go](https://deepmind.com/blog/article/alphazero-shedding-new-light-grand-games-chess-shogi-and-go)
+
+---
+
+# Por que Deep Learning?
+
+- Reconhecimento de fala
+- Reconhecimento em vídeos
+
+![:scale 50%](img/1_vAhhl1cMGTzBUTYnIMssIQ.png)
+
+Fonte: [Tesla’s Deep Learning at Scale: Using Billions of Miles to Train Neural Networks](https://towardsdatascience.com/teslas-deep-learning-at-scale-7eed85b235d3)
+
+---
+
 ## Regressão Linear
 
 Prevendo o preço de uma casa a partir do tamanho em metros quadrados.
