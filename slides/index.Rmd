@@ -15,6 +15,7 @@ output:
       countIncrementalSlides: false
       ratio: "16:9"
 ---
+
 class: middle, center, inverse
 
 # Introdução ao Deep Learning com R
@@ -28,9 +29,7 @@ knitr::opts_chunk$set(eval = TRUE, echo = FALSE,
 library(tidyverse)
 ```
 
-
 ---
-
 ## Nesse curso vamos falar de
 
 TODO
@@ -39,13 +38,36 @@ TODO
 
 ## O que é Deep learning?
 
+-   Subconjunto de técnicas de Machine Learning
+
+![:scale 50%](img/artificial-intelligence.png)
+
+Fonte: Deep Learning with R, Chollet, F et al
+
+---
+## O que é Deep learning?
+
+- Aprender representações dos dados em camadas. Aprender representações dos dados 'hierarquicamente'. 
+
+![:scale 75%](img/dl-deep.png)
+
+Fonte: Deep Learning with R, Chollet, F et al
+
+---
+
+## Por que Deep Learning
+
+-   Estado da arte em diversos problemas muito importantes.
+
+![:scale 65%](img/Screen Shot 2020-05-09 at 10.51.43.png)
+
+Fonte: [Apr. resultados ILSVRC 2017](http://image-net.org/challenges/talks_2017/ILSVRC2017_overview.pdf)
 
 ---
 
 ## Regressão Linear
 
-Prevendo o preço de uma casa a partir do tamanho em metros
-quadrados.
+Prevendo o preço de uma casa a partir do tamanho em metros quadrados.
 
 ```{r}
 df <- tibble(
@@ -78,8 +100,4 @@ nomnoml::nomnoml(
 )
 ```
 
-
 ## SGD (Stochastic gradient descent)
-
-
-
