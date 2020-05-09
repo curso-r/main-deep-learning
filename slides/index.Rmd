@@ -110,7 +110,7 @@ Prevendo o preço de uma casa a partir do tamanho em metros quadrados.
 ```{r}
 df <- tibble(
   m2 = rgamma(n = 100, scale = 5, shape = 20),
-  preco = (7200 + rnorm(n = 100, sd = 800)) * m2 
+  preco = 100000 + (6200 + rnorm(n = 100, sd = 800)) * m2 
 )
 
 ggplot(df, aes(x = m2, y = preco)) +
@@ -131,13 +131,13 @@ ggplot(df, aes(x = m2, y = preco)) +
 
 Definimos o modelo de regressão linear da seguinte forma:
 
-$$y_i = w \times x_i + b$$
+$$\hat{y_i} = w \times x_i + b$$
 - $y_i$: preço do imóvel $i$
 - $x_i$: área do imóvel $i$
 
 Poderíamos escrever
 
-$$y_i = f(x_i)$$
+$$\hat{y_i} = f(x_i)$$
 
 em que:
 
@@ -176,6 +176,59 @@ Fonte: Figura adaptada do Deep Learning with R, Chollet, F. et al.
 
 
 **Objetivo**: encontrar os melhores 'pesos' para essa Layer.
+
+---
+
+## Função de perda
+
+- Mede quanto o modelo está perto do que queremos que ele fique.
+
+- No nosso caso, mede o quanto a previsão dada por $w \times x + b$ está perto de $y$, o verdadeiro valor daquele imóvel.
+
+- Uma função de perda bastante usada é o **MSE** - Erro quadrático médio.
+
+- O MSE é dado por:
+
+$$L(\hat{y}) = \frac{1}{n}\sum_{i=1}^{n} (y_i - \hat{y_i})^2$$
+- Podemos reescrever em função dos pesos:
+
+$$L(w, b) = \frac{1}{n} \sum_{i=1}^{n} (y_i - w \times x_i - b)^2$$
+---
+
+## Função de perda em função do valor dos parâmetros
+
+```{r}
+mse <- function(w, b) {
+  mean((df$preco - (df$m2*w + b))^2)
+}
+
+expand.grid(
+  w = seq(from = -10000, to = 10000, length.out = 300),
+  b = seq(from = -200000, to = 200000, length.out = 100)
+) %>% 
+  rowwise() %>% 
+  mutate(mse = mse(w, b)) %>% 
+  ggplot(aes(x = w, y = b, fill = mse)) +
+  geom_bin2d(stat = "identity") +
+  scale_fill_gradient(high = "blue", low = "white", trans = "log") +
+  theme_minimal() +
+  geom_point(
+    data = data.frame(w = 6200, b = 100000),
+    aes(x = w, y = b, fill = NULL),
+    color = "red",
+    size = 5
+  )
+```
+
+---
+
+## Função de perda
+
+![:scale 50%](img/Screen Shot 2020-05-09 at 18.30.44.png)
+
+Fonte: Figura adaptada do Deep Learning with R, Chollet, F. et al.
+
+- A **função de perda** nos diz, dado um valor para cada peso, o quão próximo estamos do valor esperado.
 
 ---
 

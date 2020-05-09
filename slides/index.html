@@ -111,13 +111,13 @@ Prevendo o preço de uma casa a partir do tamanho em metros quadrados.
 
 Definimos o modelo de regressão linear da seguinte forma:
 
-`$$y_i = w \times x_i + b$$`
+`$$\hat{y_i} = w \times x_i + b$$`
 - `\(y_i\)`: preço do imóvel `\(i\)`
 - `\(x_i\)`: área do imóvel `\(i\)`
 
 Poderíamos escrever
 
-`$$y_i = f(x_i)$$`
+`$$\hat{y_i} = f(x_i)$$`
 
 em que:
 
@@ -159,10 +159,42 @@ Fonte: Figura adaptada do Deep Learning with R, Chollet, F. et al.
 
 ---
 
+## Função de perda
+
+- Mede quanto o modelo está perto do que queremos que ele fique.
+
+- No nosso caso, mede o quanto a previsão dada por `\(w \times x + b\)` está perto de `\(y\)`, o verdadeiro valor daquele imóvel.
+
+- Uma função de perda bastante usada é o **MSE** - Erro quadrático médio.
+
+- O MSE é dado por:
+
+`$$L(\hat{y}) = \frac{1}{n}\sum_{i=1}^{n} (y_i - \hat{y_i})^2$$`
+- Podemos reescrever em função dos pesos:
+
+`$$L(w, b) = \frac{1}{n} \sum_{i=1}^{n} (y_i - w \times x_i - b)^2$$`
+---
+
+## Função de perda em função do valor dos parâmetros
+
+&lt;img src="index_files/figure-html/unnamed-chunk-2-1.png" width="960" /&gt;
+
+---
+
+## Função de perda
+
+![:scale 50%](img/Screen Shot 2020-05-09 at 18.30.44.png)
+
+Fonte: Figura adaptada do Deep Learning with R, Chollet, F. et al.
+
+- A **função de perda** nos diz, dado um valor para cada peso, o quão próximo estamos do valor esperado.
+
+---
+
 ## Grafo de computação
 
-<div id="htmlwidget-efdb1b43dd79ffd629ae" style="width:960px;height:451.2px;" class="nomnoml html-widget"></div>
-<script type="application/json" data-for="htmlwidget-efdb1b43dd79ffd629ae">{"x":{"code":"\n  #fill: #FEFEFF\n  #lineWidth: 1\n  #zoom: 4\n  #direction: right\n   \n  [x]->[y_hat = wx + b]\n  [w]->[y_hat = wx + b]\n  [b]->[y_hat = wx + b]\n  [y_hat = wx + b]->[loss = (y - y_hat)^2]\n  [y]->[loss = (y - y_hat)^2]\n  ","svg":false},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-b2222301da347b33f995" style="width:960px;height:451.2px;" class="nomnoml html-widget"></div>
+<script type="application/json" data-for="htmlwidget-b2222301da347b33f995">{"x":{"code":"\n  #fill: #FEFEFF\n  #lineWidth: 1\n  #zoom: 4\n  #direction: right\n   \n  [x]->[y_hat = wx + b]\n  [w]->[y_hat = wx + b]\n  [b]->[y_hat = wx + b]\n  [y_hat = wx + b]->[loss = (y - y_hat)^2]\n  [y]->[loss = (y - y_hat)^2]\n  ","svg":false},"evals":[],"jsHooks":[]}</script>
 
 ## SGD (Stochastic gradient descent)
     </textarea>
