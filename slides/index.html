@@ -91,16 +91,78 @@ Fonte: [Tesla’s Deep Learning at Scale: Using Billions of Miles to Train Neura
 
 ---
 
+class: middle, center, inverse
+
+# Tudo começa com ....
+
+## Regressão Linear
+
+---
+
 ## Regressão Linear
 
 Prevendo o preço de uma casa a partir do tamanho em metros quadrados.
 
 &lt;img src="index_files/figure-html/unnamed-chunk-1-1.png" width="960" /&gt;
 
+---
+
+## Definição do modelo
+
+Definimos o modelo de regressão linear da seguinte forma:
+
+`$$y_i = w \times x_i + b$$`
+- `\(y_i\)`: preço do imóvel `\(i\)`
+- `\(x_i\)`: área do imóvel `\(i\)`
+
+Poderíamos escrever
+
+`$$y_i = f(x_i)$$`
+
+em que:
+
+- `\(f(x) = w \times x + b\)`
+
+Chamamos `\(f\)` de **'layer'** (camada) na linguagem do Deep learning.
+
+---
+
+## Layers (Camadas)
+
+- Uma **'layer'** é uma transformação dos dados que é
+parametrizada por **pesos**. 
+
+- 'Aprender', então, significa encontrar os melhores **pesos** para cada camada.
+
+No exemplo:
+
+`$$f(x) = w \times x + b$$`
+
+Os pesos são `\(w\)` e `\(b\)`.
+
+- Essas camadas são os 'tijolos' do Deep Learning e existem diversas 'camadas'.
+
+- A camada do exemplo é chamada de **'Densa'** ou **'Linear'**.
+
+- Um modelo pode possuir uma ou mais dessas camadas.
+
+---
+
+# Regressão Linear
+
+![:scale 65%](img/Screen Shot 2020-05-09 at 14.32.20.png)
+
+Fonte: Figura adaptada do Deep Learning with R, Chollet, F. et al.
+
+
+**Objetivo**: encontrar os melhores 'pesos' para essa Layer.
+
+---
+
 ## Grafo de computação
 
-<div id="htmlwidget-48504a444778cc9fa79a" style="width:960px;height:451.2px;" class="nomnoml html-widget"></div>
-<script type="application/json" data-for="htmlwidget-48504a444778cc9fa79a">{"x":{"code":"\n  #fill: #FEFEFF\n  #lineWidth: 1\n  #zoom: 4\n  #direction: right\n   \n  [x]->[y_hat = wx + b]\n  [w]->[y_hat = wx + b]\n  [b]->[y_hat = wx + b]\n  [y_hat = wx + b]->[loss = (y - y_hat)^2]\n  [y]->[loss = (y - y_hat)^2]\n  ","svg":false},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-efdb1b43dd79ffd629ae" style="width:960px;height:451.2px;" class="nomnoml html-widget"></div>
+<script type="application/json" data-for="htmlwidget-efdb1b43dd79ffd629ae">{"x":{"code":"\n  #fill: #FEFEFF\n  #lineWidth: 1\n  #zoom: 4\n  #direction: right\n   \n  [x]->[y_hat = wx + b]\n  [w]->[y_hat = wx + b]\n  [b]->[y_hat = wx + b]\n  [y_hat = wx + b]->[loss = (y - y_hat)^2]\n  [y]->[loss = (y - y_hat)^2]\n  ","svg":false},"evals":[],"jsHooks":[]}</script>
 
 ## SGD (Stochastic gradient descent)
     </textarea>
