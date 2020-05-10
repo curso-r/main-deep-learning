@@ -221,9 +221,9 @@ No nosso exemplo temos:
 
 Então para andar mais rápido para o mínimo de `\(L\)` cada passo de `\(w\)` e `\(b\)` tem que ser calculado da seguinte forma:
 
-`$$w_{(i+1)} = w_{(i)} - \frac{\partial L}{\partial w} = w_{(i)} - \frac{1}{n}\sum_{i=1}^{n} (-2 \times x_i)(y_i - w \times x_i -b)$$`
+`$$w_{(i+1)} = w_{(i)} - \alpha \frac{\partial L}{\partial w} = w_{(i)} - \alpha \frac{1}{n}\sum_{i=1}^{n} (-2 \times x_i)(y_i - w \times x_i -b)$$`
 
-`$$b_{(i+1)} = b_{(i)} - \frac{\partial L}{\partial b} = b_{(i)} - \frac{1}{n} \sum_{i=1}^{n} (-2)(y_i - w \times x_i -b)$$`
+`$$b_{(i+1)} = b_{(i)} - \alpha \frac{\partial L}{\partial b} = b_{(i)} - \alpha \frac{1}{n} \sum_{i=1}^{n} (-2)(y_i - w \times x_i -b)$$`
 
 **Calma!** vamos dissecar essas fórmulas.
 
@@ -242,13 +242,69 @@ Fonte: Figura adaptada do Deep Learning with R, Chollet, F. et al.
 
 ## Grafo de computação
 
-TODO: fazer na mão
+.pull-left[
+
+- É útil representar modelo em um grafo de computação.
+- **Cinza** são os pesos.
+- **Verde** são os dados.
+- **Laranja** são variáveis derivadas de dados &amp; pesos.
+
+]
+
+.pull-right[
+![:scale 100%](img/Screen Shot 2020-05-09 at 22.13.42.png)
+]
+
 
 ---
 
-## Grafo de computação
+## Calculando as derivadas
 
-TODO: colocar as contas
+.pull-left[
+
+1. Calculamos as derivadas parciais para cada transformação.
+2. Usamos a regra da cadeia para calcular as derivadas `\(\frac{\partial L}{\partial w}\)` e `\(\frac{\partial L}{\partial b}\)`.
+
+Pela regra da cadeia temos:
+
+`$$\frac{\partial L}{\partial w} = 2(y_i - \hat{y}) \times x_i$$`
+
+`$$\frac{\partial L}{\partial b} = 2(y_i - \hat{y}) \times 1$$`
+
+**Nota**: tiramos as médias p/ simplicar a notação.
+
+]
+
+.pull-right[
+![:scale 100%](img/Screen Shot 2020-05-09 at 22.13.21.png)
+]
+
+---
+
+## Gradient descent
+
+No fim temos que a regra de atualização dos pesos é:
+
+`$$w_{(i+1)} = w_{(i)} - \alpha \times \left( 2(y_i - \hat{y}) \times x_i \right)$$`
+
+`$$b_{(i+1)} = b_{(i)} - \alpha \times \left( 2(y_i - \hat{y}) \times 1 \right)$$`
+- `\(\alpha\)` é um hiper parâmetro que chamamos de **'learning rate'**. Ele controla com qual intensidade vamos andar na direção do gradiente.
+
+- Na fórmula vemos que podemos obter `\(w_{(i+1)}\)`  em função do `\(w_{(i)}\)`, mas e o `\(w_{(0)}\)`? Geralmente inicializamos ele com algum número aleatório. A mesma coisa para o `\(b_{(0)}\)`.
+
+---
+
+## Gradient descent
+
+- **Esquerda** eixos `\(b\)` e `\(m\)` representam `\(b\)` e `\(w\)` no nosso exemplo. O eixo 'Error' representa o valor da função de perda.
+
+- Conseguimos visualizar a descida até o mínimo da função de perda pelo método do gradiente. 
+
+- Na **direita** a reta ajustada para os dados.
+
+![:scale 60%](img/0_D7zG46WrdKx54pbU.gif)
+
+Fonte: [https://alykhantejani.github.io/images/gradient_descent_line_graph.gif](https://alykhantejani.github.io/images/gradient_descent_line_graph.gif)
 
 ---
 
