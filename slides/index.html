@@ -221,9 +221,9 @@ No nosso exemplo temos:
 
 Então para andar mais rápido para o mínimo de `\(L\)` cada passo de `\(w\)` e `\(b\)` tem que ser calculado da seguinte forma:
 
-`$$w_{(i+1)} = w_{(i)} - \alpha \frac{\partial L}{\partial w} = w_{(i)} - \alpha \frac{1}{n}\sum_{i=1}^{n} (-2 \times x_i)(y_i - w \times x_i -b)$$`
+`$$w_{(k+1)} = w_{(k)} - \alpha \frac{\partial L}{\partial w} = w_{(k)} - \alpha \frac{1}{n}\sum_{i=1}^{n} (-2 \times x_i)(y_i - w \times x_i -b)$$`
 
-`$$b_{(i+1)} = b_{(i)} - \alpha \frac{\partial L}{\partial b} = b_{(i)} - \alpha \frac{1}{n} \sum_{i=1}^{n} (-2)(y_i - w \times x_i -b)$$`
+`$$b_{(k+1)} = b_{(k)} - \alpha \frac{\partial L}{\partial b} = b_{(k)} - \alpha \frac{1}{n} \sum_{i=1}^{n} (-2)(y_i - w \times x_i -b)$$`
 
 **Calma!** vamos dissecar essas fórmulas.
 
@@ -285,9 +285,9 @@ Pela regra da cadeia temos:
 
 No fim temos que a regra de atualização dos pesos é:
 
-`$$w_{(i+1)} = w_{(i)} - \alpha \times \left( 2(y_i - \hat{y}) \times x_i \right)$$`
+`$$w_{(k+1)} = w_{(k)} - \alpha \times \frac{1}{n} \sum_{i = 1}^n \left( 2(y_i - \hat{y}) \times x_i \right)$$`
 
-`$$b_{(i+1)} = b_{(i)} - \alpha \times \left( 2(y_i - \hat{y}) \times 1 \right)$$`
+`$$b_{(k+1)} = b_{(k)} - \alpha \times \frac{1}{n} \sum_{i = 1}^n \left( 2(y_i - \hat{y}) \times 1 \right)$$`
 - `\(\alpha\)` é um hiper parâmetro que chamamos de **'learning rate'**. Ele controla com qual intensidade vamos andar na direção do gradiente.
 
 - Na fórmula vemos que podemos obter `\(w_{(i+1)}\)`  em função do `\(w_{(i)}\)`, mas e o `\(w_{(0)}\)`? Geralmente inicializamos ele com algum número aleatório. A mesma coisa para o `\(b_{(0)}\)`.
@@ -308,15 +308,85 @@ Fonte: [https://alykhantejani.github.io/images/gradient_descent_line_graph.gif](
 
 ---
 
-Fazer no R - exemplo 01
+class: center, middle
+
+exemplo 01: exemplos/01-linear-regression.R
+
+---
+
+## Exercício 1
+
+Arquivo: exercicios/01-linear-regression.R
+
+![:scale 50%](img/Screen Shot 2020-05-11 at 14.25.07.png)
 
 ---
 
 ## SGD (Stochastic gradient descent)
 
+- Em vez de calcular a média da derivada em todos os exemplos da base de dados, calculamos em apenas 1 e já andamos. Isto é, trocamos:
+
+`$$w_{(k+1)} = w_{(k)} - \alpha \times \frac{1}{n} \sum_{i = 1}^n \left( 2(y_i - \hat{y}) \times x_i \right)$$`
+
+por
+
+`$$w_{(k+1)} = w_{(k)} - \alpha \times \left( 2(y_i - \hat{y}) \times x_i \right)$$`
+
+- Cada vez que atravessamos a base inteira dessa forma chamamos de **'epoch'**.
+
+- Agora é possível atualizar os pesos sem precisar fazer contas na base inteira. Mais **rápido**.
+
+- Como estimamos o passo com apenas uma observação, os passos (principalmente quando já estão perto do mínimo) podem ser meio ruins.
+
 ---
 
-Fazer no R - exemplo 02
+## SGD
+
+- Na prática, parece que o fato dos passos serem ruins perto do mínimo é bom - isso faz um certo tipo de regularização. Não se sabe explicar esse comportamento muito bem ainda.
+
+![:scale 40%](img/Screen Shot 2020-05-11 at 14.39.43.png)
+
+Fonte: https://www.stat.cmu.edu/~ryantibs/convexopt/lectures/stochastic-gd.pdf
+
+---
+
+## Mini-batch SGD
+
+- Em cada iteração, selecionamos uma amostra de tamanho `\(b\)` da base de tamanho `\(n\)`. Em geral `\(b &lt;&lt; n\)`. 
+
+- Calculamos o passo do GD com essa amostra. No final temos:
+
+`$$w_{(k+1)} = w_{(k)} - \alpha \times \frac{1}{b} \sum_{i = 1}^b \left( 2(y_i - \hat{y}) \times x_i \right)$$`
+
+- Na prática é o que funciona melhor. Compensa o passo do SGD ser meio ruim por se basear em apenas uma observação e o fato do GD ser muito pesado computacionalmente para bases muito grandes.
+
+- Em geral usa-se `\(b\)` (**batch size**) múltiplos de 2.
+
+---
+
+## Mini-batch SGD
+
+.pull-left[
+![:scale 80%](img/Screen Shot 2020-05-11 at 14.48.37.png)
+]
+
+.pull-right[
+![:scale 80%](img/Screen Shot 2020-05-11 at 14.48.44.png)
+]
+
+Fonte: https://www.stat.cmu.edu/~ryantibs/convexopt/lectures/stochastic-gd.pdf
+
+---
+
+class: middle, center
+
+exemplo 02: exemplos/02-sgd.R
+
+---
+
+class: middle, center
+
+exercicio 02: exercicios/02-mini-batch-sgd.R
 
 ---
 
