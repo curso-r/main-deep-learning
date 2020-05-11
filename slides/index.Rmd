@@ -438,11 +438,42 @@ exercicio 02: exercicios/02-mini-batch-sgd.R
 
 ## TensorFlow
 
-TODO
+- Biblioteca open-source para cálculos numéricos.
+- Desenvolvida incialmente pela Google.
+- Foco em Machine Learning e principalmente Deep Learning.
+- Muito rápido - implementado para diversos hardwares como GPU's e até TPU's.
+- Feature: **Automatic Differentiation**!
+- Um grande ecossistema de addosn e extensões.
+- Biblioteca mais utilizada para fazer Deep Learning atualmente.
+
+![:scale 75%](img/tf-logo.jpg)
 
 ---
 
 ## Keras
+
+- É uma biblioteca open-source criada para especificar modelos de Deep Learning
+- Foi criada antes do TensorFlow existir
+- Funciona com múltiplos 'backends' - exemplo Theano, CNTK e PlaidML
+- Foi **incorporada pelo TensorFlow** e à partir do 2.0 é a forma recomendada de
+especificar modelos no TensorFlow
+
+![](img/keras-logo-2018-large-1200.png)
+
+---
+
+## TensorFlow e Keras no R
+
+- TensorFlow e Keras são [implementados no R usando o 'reticulate'](https://blogs.rstudio.com/tensorflow/posts/2019-08-29-using-tf-from-r/), isso significa que chamamos funções do Python. 
+
+- Keras para o R fornece uma API muito mais *user fiendly* para quem já programa em R e quer aprender Deep Learning.
+
+- Muitos guias e tutoriais [aqui](https://tensorflow.rstudio.com/).
+
+- A performance é comparável com a do Python - as contas pesadas acontecem no C++. 
+
+- A comunidade é menor -> tem seus prós e contras.
+
 
 ---
 
