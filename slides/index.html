@@ -431,7 +431,83 @@ especificar modelos no TensorFlow
 
 ---
 
-Fazer no R - exemplo 03
+class: middle, center
+
+exemplo 03: exemplos/03-keras.R
+
+---
+
+class: middle, center
+
+exercício 03: exercicios/03-keras-linear-regression.R
+
+---
+
+## Multi-layer perceptron (MLP)
+
+- Essa imagem é uma das primeiras a passar pela cabeça quando falam sobre redes neurais.
+
+![:scale 45%](img/A-hypothetical-example-of-Multilayer-Perceptron-Network.png)
+
+Fonte: https://www.researchgate.net/figure/A-hypothetical-example-of-Multilayer-Perceptron-Network_fig4_303875065
+
+---
+
+## Notação matricial
+
+Escrever na forma escalar é mais fácil para exemplos mais simples mas,
+para exemplos um pouco mais avançados começa a ficar muito confusa.
+
+.center[
+![:scale 50%](img/Screen Shot 2020-05-11 at 23.27.43.png)
+]
+
+---
+
+## Notação matricial
+
+Re-escrevemos o modelo anterior usando a notação matricial.
+Veja que temos um pouco menos de caixinhas. Fica mais fácil
+de ler.
+
+.center[
+![:scale 50%](img/Screen Shot 2020-05-11 at 23.34.03.png)
+]
+
+---
+
+## MLP
+
+.pull-left[
+
+- Ao lado temos a representação do grafo computacional de um MLP com uma camada escondida ('hidden layer') com 2 neurônios.
+
+- `\(\sigma\)` é uma **função de ativação**, reposável por adicionar não linearidades ao modelo.
+
+]
+
+.pull-right[
+![](img/Screen Shot 2020-05-11 at 23.45.52.png)
+
+]
+
+---
+
+## MLP
+
+Vamos escrever a fórmula para calcular a previsão para uma observação `\(i\)`,  `\(\hat{y_i}\)`. Considere: 
+ 
+`\(W  = \begin{bmatrix}w_{11} &amp; w_{12}\\w_{21} &amp; w_{22}\end{bmatrix}\)`
+
+`\(b = \begin{bmatrix}b_{11} &amp; b_{12}\end{bmatrix}\)`
+
+`\(V = \begin{bmatrix}v_{11} &amp; v_{12}\end{bmatrix}\)`
+
+`\(a = \begin{bmatrix}a_{11}\end{bmatrix}\)`
+
+Então temos que
+
+`$$\hat{y_i} = v_{11}\sigma(w_{11} * x_{i1} + w_{21} * x_{i2} + b_{11}) + v_{12}\sigma(w_{12} * x_{i1} + w_{22} * x_{i2} + b_{12}) + a_{11}$$`
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
