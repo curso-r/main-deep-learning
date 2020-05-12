@@ -484,10 +484,14 @@ de ler.
 
 - `\(\sigma\)` é uma **função de ativação**, reposável por adicionar não linearidades ao modelo.
 
+- O número de colunas da matriz de pesos `\(W\)` é o número de **'hidden units'**.
+
+- A matrix `\(H\)` é o que chamamos de **'hidden units'**.
+
 ]
 
 .pull-right[
-![](img/Screen Shot 2020-05-11 at 23.45.52.png)
+![](img/Screen Shot 2020-05-12 at 12.03.48.png)
 
 ]
 
@@ -508,6 +512,46 @@ Vamos escrever a fórmula para calcular a previsão para uma observação `\(i\)
 Então temos que
 
 `$$\hat{y_i} = v_{11}\sigma(w_{11} * x_{i1} + w_{21} * x_{i2} + b_{11}) + v_{12}\sigma(w_{12} * x_{i1} + w_{22} * x_{i2} + b_{12}) + a_{11}$$`
+
+---
+
+## Hidden units
+
+Existem duas escolhas com relação às **'hidden units'**:
+
+1. Qual é o número de hidden units? Em geral isso é uma função do tamanho da matrix `\(X\)`. Não existe uma regra de ouro para escolher isso, é preciso testar diversos tamanhos e ver qual fica melhor.
+
+2. A **função de ativação** é a parte mais importante. Em geral **rectiﬁed linear units** são a primeira coisa para testar. 
+
+A seguir vamos conhecer algumas das funções de ativação mais utilizadas. Antes disso, vale a pena lembrar alguns pontos.
+
+- As funções de ativação entram na conta do gradiente e portanto precisam ser deriváveis (pelo menos na maioria dos pontos).
+
+- Descobrir qual função de ativação vai funcionar é também uma área de pesquisa ativa, e em geral é necessário testar várias versões para descobrir qual fica melhor.
+
+---
+
+## Rectiﬁed Linear Units (ReLu)
+
+.pull-left[
+
+- Usamos a função de ativação `\(\sigma(z) = max\{0, z\}\)`.
+
+- A ideia do ReLu é ser fácil de otimizar, porque é muito parecido com simplesmente não ter ativação (ativação linear).
+
+- As derivadas são altas quando a unidade é importante, isto é, quando o output é alto.
+
+- A segunda derivada não tem muita influencia pois ou é zero ou um.
+
+- Ver capítulo [6.3.1 do Deep Learning Book](https://www.deeplearningbook.org/contents/mlp.html) para outras extensões.
+
+]
+
+.pull-right[
+&lt;img src="index_files/figure-html/unnamed-chunk-3-1.png" width="480" /&gt;
+]
+
+
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
