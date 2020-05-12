@@ -512,6 +512,51 @@ Vamos escrever a fórmula para calcular a previsão para uma observação `\(i\)
 Então temos que
 
 `$$\hat{y_i} = v_{11}\sigma(w_{11} * x_{i1} + w_{21} * x_{i2} + b_{11}) + v_{12}\sigma(w_{12} * x_{i1} + w_{22} * x_{i2} + b_{12}) + a_{11}$$`
+---
+
+## MLP
+
+.pull-left[
+
+- Agora acrescentamos mais uma camada no nosso modelo.
+
+- Cada camada pode ter uma função `\(\sigma\)` diferente.
+
+- Cada camada pode ter um número de unidades diferente também.
+
+]
+
+.pull-right[
+
+![](img/Screen Shot 2020-05-12 at 12.40.13.png)
+
+]
+
+---
+
+## MLP
+
+A ideia de usar camadas surge da seguinte forma:
+
+- Um modelo linear só pode, por definição, representar funções lineares.
+
+- A seguir veio a ideia de criar modelos específicos para cada tipo de não linearidade que é estudada. Modelos exponenciais, modelos logistios, etc.
+
+- Teorema da aproximação universal (Hornik et al.) fala que um MLP com uma camada com uma função de ativação que achata as entradas, pode aproximar qualquer função desde que ela tenha um número suficiente de **'hidden units'**.
+
+- Na prática isso não funciona muito bem porque o número de **'hidden units'** pode ter que ser muito grande - então esbarramos na quantidade de dados disponível.
+
+---
+
+### MLP
+
+- A ideia a seguir foi usar várias camadas, ao invés de uma.
+
+- Várias funções podem ser aproximadas com uma quantidade menor de *hidden units* se a **arquitetura** tiver mais camadas.
+
+![](img/Screen Shot 2020-05-12 at 12.35.19.png)
+
+Fonte: [Deep Learning Book - capítulo 6](https://www.deeplearningbook.org/contents/mlp.html)
 
 ---
 
