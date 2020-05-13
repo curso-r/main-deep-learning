@@ -272,6 +272,7 @@ $$w_{(k+1)} = w_{(k)} - \alpha \frac{\partial L}{\partial w} = w_{(k)} - \alpha 
 $$b_{(k+1)} = b_{(k)} - \alpha \frac{\partial L}{\partial b} = b_{(k)} - \alpha \frac{1}{n} \sum_{i=1}^{n} (-2)(y_i - w \times x_i -b)$$
 
 **Calma!** vamos dissecar essas fórmulas.
+Para a formulação mais formal ver capítulo 6.5 do [Deep Learning Book](https://www.deeplearningbook.org/contents/mlp.html).
 
 ---
 
@@ -649,5 +650,37 @@ tibble(
   theme_minimal()
 ```
 ]
+
+---
+
+## Sigmoid
+
+
+.pull-left[
+
+- A função sigmoid é dada por:
+
+$$\sigma(z) = \frac{1}{1 + e^{-z}}$$
+
+- Antes da introdução do ReLu, a maioria das redes neurais usava esse tipo de ativação.
+
+- Diferentemente da unidades lineares, a derivada da sigmoid fica saturada quando o input é muito negativo ou muito positivo.
+
+- Hoje em dia não se recomenda usá-la como função de ativação em camadas escondidas ('hidden layers').
+
+- Ver capítulo 6.2.3 do [Deep Learning Book](https://www.deeplearningbook.org/contents/mlp.html).
+
+]
+
+.pull-right[
+![](img/1_6A3A_rt4YmumHusvTvVTxw.png)
+
+Fonte: https://towardsdatascience.com/derivative-of-the-sigmoid-function-536880cf918e
+]
+
+
+
+
+
 
 
