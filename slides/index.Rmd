@@ -690,3 +690,35 @@ class: middle, center
 
 exercicio 04: exercicios/04-boston-housing.R
 
+---
+
+# Regressão logística
+
+- Até agora só falamos de redes neurais que podem retornar números em qualquer intervalo. Isto é, quando fazemos $\hat{y} = w*x + b$, $w$ e $b$ podem assumir quaisquer valores e portanto podem fazer com que $\hat{y}$ seja qualuqer número de $-\inf$ até $+\inf$.
+
+- Em problemas de classficação, por exemplo, não queremos que $\hat{y}$ seja qualquer valor, e sim a probabilidade de $y$ ser de uma determinada classe. Temos então 2 pontos:
+
+1. Queremos que $\hat{y}$ seja um número entre 0 e 1.
+
+2. Como queremos que o output $\hat{y}$ seja uma probabilidade, não queremos minimizar o MSE e sim uma outra função de perda que leve à essa interpretação.
+
+Vamos ver como resolver esses dois problemas.
+
+---
+
+## $\hat{y}$ precisa ser um número entre 0 e 1
+
+- Para resolver esse problema basta usar uma função de ativação na última camada que transforme o intervalo $]-\infty, \infty[$ no intervalo $[0,1]$.
+
+- Uma função famosa por isso, e que já conhecemos é a função sigmoid.
+
+$$\sigma(z) = \frac{1}{1 + e^{-z}}$$
+
+.center[
+![:scale 40%](img/1_6A3A_rt4YmumHusvTvVTxw.png)
+]
+
+Fonte: https://towardsdatascience.com/derivative-of-the-sigmoid-function-536880cf918e
+
+
+
