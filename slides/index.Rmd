@@ -700,7 +700,7 @@ exercicio 04: exercicios/04-boston-housing.R
 
 1. Queremos que $\hat{y}$ seja um número entre 0 e 1.
 
-2. Como queremos que o output $\hat{y}$ seja uma probabilidade, não queremos minimizar o MSE e sim uma outra função de perda que leve à essa interpretação.
+2. Como queremos que o output $\hat{y}$ seja uma probabilidade, não queremos minimizar o MSE e sim uma outra função de perda que leve à essa interpretação. Além disso, o sigmoid satura muito rápido, então precisamos de uma função de perda que arrume isso. 
 
 Vamos ver como resolver esses dois problemas.
 
@@ -720,5 +720,22 @@ $$\sigma(z) = \frac{1}{1 + e^{-z}}$$
 
 Fonte: https://towardsdatascience.com/derivative-of-the-sigmoid-function-536880cf918e
 
+---
 
+## A função de perda
 
+Em geral usamos a função de perda que chamamos de **'cross entropy'**.
+
+Essa função é dada por:
+
+$$L(\hat{y}) = \sum_{i = 1}^{n} \left[ y_i \times \log \hat{y_i} + (1-y) \times \log(1 - \hat{y_i}) \right]$$
+Isso fica mais claro quando lemos o seguinte código:
+
+```{r, echo = TRUE}
+cross_entropy <- function(y_hat) {
+  if (y == 1) -log(y_hat)
+  else -log(-y_hat)
+}
+```
+
+Isso equivale a estimativa de máxima verossimilhança quando assumimos que $y$ tem distribuição $Bernoulli(\hat{y})$.
