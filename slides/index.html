@@ -686,6 +686,174 @@ cross_entropy &lt;- function(y_hat) {
 ```
 
 Isso equivale a estimativa de máxima verossimilhança quando assumimos que `\(y\)` tem distribuição `\(Bernoulli(\hat{y})\)`.
+
+---
+
+class: middle, center
+
+exemplo 05: exemplos/05-regressao-logística.R
+
+---
+
+class: middle, center
+
+exercício 05: exercicios/05-boston-housing-logistic.R
+
+---
+
+## Outras funções de perda
+
+- Existem muitas outras funções de perda que podem ser utilizadas.
+
+- Dependendo do prooblema você pode preferir uma ou outra.
+
+Alguns exemplos:
+
+- MAE - mean absolute error - para resposta numérica quando você não quer dar tanto peso para os outliers.
+
+- Categorical cross-entropy: é uma generalização da binary cross-entropy quando você tem mais do que duas classes.
+
+- Huber Loss: variação do mse um pouco menos sensível aos outliers.
+
+---
+
+class: middle, center, inverse
+
+# Convolutional Neural Networks (CNN)
+
+
+---
+
+## CNN's 
+
+- É uma arquitetura de redes neurais que é útil principalmente para classificação de imagens. 
+
+![](img/1_vkQ0hXDaQv57sALXAJquxA.jpeg)
+Fonte: [Introduction to CNN's ](https://towardsdatascience.com/a-comprehensive-guide-to-convolutional-neural-networks-the-eli5-way-3bd2b1164a53)
+
+---
+
+## Imagens como dados
+
+- Uma imagem em preto e branco (sem cinza) é uma matriz de 0's e 1's. Algo dessa
+forma:
+
+![:scale 100%](img/Screen Shot 2020-05-16 at 15.46.49.png)
+
+1 significa preto, e 0 significa branco.
+
+---
+
+## Imagens como dados
+
+.pull-left[
+
+- Imagens coloridas são representadas como um array de 3 dimensões.
+
+- É como se fosse um 'empilhado' de 3 matrizes. 
+
+- Cada elemento é a intensidade de cada cor daquele píxel.
+
+]
+
+.pull-right[
+
+![:scale 50%](img/1.jpg)
+
+Fonte: [Create a Retro CRT Distortion Effect Using RGB Shifting](https://code.tutsplus.com/tutorials/create-a-retro-crt-distortion-effect-using-rgb-shifting--active-3359)
+
+
+![:scale 50%](img/Screen Shot 2020-05-16 at 15.34.53.png)
+]
+
+---
+
+## CNN's 
+
+.pull-left[
+A principal diferença com relação à MLP é que a as camadas 'densas' aprendem padrões globais dos inputs, enquanto convoluções aprendem padrões **locais** dos inputs. 
+]
+
+.pull-right[
+
+![:scale 75%](img/Screen Shot 2020-05-16 at 14.52.16.png)
+
+Fonte: Deep Learning with R
+
+]
+---
+
+## CNN's 
+
+Essa característica, de aprender padrões **locais**, permitem duas importantes propriedades:
+
+.pull-left[
+- **translation invariant**: um padrão pode ser encontrado mesmo que ele apareça no canto em uma imagem e no centro em outra. 
+
+- **hierarquia espacial de padrões**: em um primeiro momento a CNN aprende a identificar cantos, linhas. Mais para frente aprende padrões um pouco maiores e mais complexos.
+]
+
+.pull-right[
+![:scale 75%](img/Screen Shot 2020-05-16 at 15.12.57.png)
+
+Fonte: Deep Learning with R
+
+]
+
+---
+
+## Uma convolução
+
+.pull-left[
+- Definimos uma matriz de pesos (em cinza na representação ao lado)
+
+- Andamos com essa matriz de pesos para cada parte da imagem (em azul ao lado). 
+
+- Esses pesos são multiplicados e depois somados para gerar uma nova 'imagem' (em verde).
+
+]
+
+.pull-right[
+![](img/padding_strides.gif)
+
+Fonte: [Conv arithmetic](https://github.com/vdumoulin/conv_arithmetic)
+]
+
+---
+
+exemplo 06: convolution.R
+
+---
+
+## Outros tipos de padding/strides
+
+&lt;table style="width:100%; table-layout:fixed;"&gt;
+  &lt;tr&gt;
+    &lt;td&gt;&lt;img width="150px" src="img/no_padding_no_strides.gif"&gt;&lt;/td&gt;
+    &lt;td&gt;&lt;img width="150px" src="img/arbitrary_padding_no_strides.gif"&gt;&lt;/td&gt;
+    &lt;td&gt;&lt;img width="150px" src="img/same_padding_no_strides.gif"&gt;&lt;/td&gt;
+    &lt;td&gt;&lt;img width="150px" src="img/full_padding_no_strides.gif"&gt;&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;No padding, no strides&lt;/td&gt;
+    &lt;td&gt;Arbitrary padding, no strides&lt;/td&gt;
+    &lt;td&gt;Half padding, no strides&lt;/td&gt;
+    &lt;td&gt;Full padding, no strides&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;&lt;img width="150px" src="img/no_padding_strides.gif"&gt;&lt;/td&gt;
+    &lt;td&gt;&lt;img width="150px" src="img/padding_strides.gif"&gt;&lt;/td&gt;
+    &lt;td&gt;&lt;img width="150px" src="img/padding_strides_odd.gif"&gt;&lt;/td&gt;
+    &lt;td&gt;&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;No padding, strides&lt;/td&gt;
+    &lt;td&gt;Padding, strides&lt;/td&gt;
+    &lt;td&gt;Padding, strides (odd)&lt;/td&gt;
+    &lt;td&gt;&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
