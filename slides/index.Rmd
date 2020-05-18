@@ -770,6 +770,84 @@ Alguns exemplos:
 
 ---
 
+## Mais de duas categorias
+
+- Quando temos um problema de predição de muitas categorias, a nossa resposta é uma matriz, por exemplo:
+
+```{r}
+tribble(
+  ~banana, ~`maçã`, ~ laranja,
+   0     ,   1    ,  0,
+   1     ,   0    ,  1,
+   0     ,   0    ,  1
+)
+```
+
+- O número de colunas igual ao número de categorias possíveis.
+
+- O número de linhas é o número de observações da base.
+
+- Os valores são 0 quando a observação **não** é daquela categoria e 1 quando é da categoria.
+
+---
+
+## Mais de duas categorias
+
+Queremos que o nosso modelo retorne uma matriz de probabilidades, por exemplo:
+
+```{r}
+tribble(
+  ~banana, ~`maçã`, ~ laranja,
+   0.2     ,   0.7    ,  0.1,
+   0.6     ,   0.1    ,  0.3,
+   0.1     ,   0.3    ,  0.6
+)
+```
+
+- Veja que as linhas somam 1.
+- Para isso usamos a função de ativação 'softmax'.
+
+Seja $x = (x_1, x_2, ... x_k)$ então:
+
+$$\sigma(x)_i = \frac{e^{x_i}}{\sum_{i = 1}^{n}{e^{x_i}}}$$
+
+---
+
+## Mais de duas categorias
+
+Também precisamos modificar a função de perda. Ao invés de usarmos a função binary crossentropy, usamos a função categorical crossentropy. 
+
+.pull-left[
+
+A binary crossentropy era dada assim:
+
+```{r, echo = TRUE}
+cross_entropy <- function(y_hat) {
+  if (y == 1) -log(y_hat)
+  else -log(-y_hat)
+}
+```
+]
+
+.pull-right[
+A categorical cross entropy é dada por (considere que y_hat agora é uma matriz em que o numero de colunas é o número de classes).
+
+```{r, echo = TRUE, eval = FALSE}
+cross_entropy <- function(y_hat) {
+  if (y == 1) -log(y_hat[,1])
+  else if (y == 2) - log(y_hat[,2])
+  ...
+  else if (y == k) - log(y_hat[,k])
+}
+```
+]
+
+---
+
+exercicio 06: exercicios/06-mlp-mnist.R
+
+---
+
 class: middle, center, inverse
 
 # Convolutional Neural Networks (CNN)
@@ -906,4 +984,24 @@ exemplo 06: convolution.R
     <td></td>
   </tr>
 </table>
+
+---
+
+## CNN's 
+
+Primeiro temos um 'kernel' (matriz de parâmetros p/ cada canal):
+
+![](img/1_8dx6nxpUh2JqvYWPadTwMQ.gif)
+
+Fonte: [Intuitively Understanding Convolutions for Deep Learning](https://towardsdatascience.com/intuitively-understanding-convolutions-for-deep-learning-1f6f42faee1)
+
+---
+
+## CNN's
+
+Em seguida somamos os outputs de cada canal:
+
+![](img/1_CYB2dyR3EhFs1xNLK8ewiA.gif)
+
+Fonte: [Intuitively Understanding Convolutions for Deep Learning](https://towardsdatascience.com/intuitively-understanding-convolutions-for-deep-learning-1f6f42faee1)
 
