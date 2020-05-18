@@ -1064,6 +1064,8 @@ Overfitting](http://jmlr.org/papers/volume15/srivastava14a/srivastava14a.pdf)
 
 - Consiste em normalizar os valores das 'hidden units'.
 
+- Em geral usamos Batch Norm antes da ativação.
+
 Ver: https://www.youtube.com/watch?v=tNIpEZLv_eg e https://www.youtube.com/watch?v=nUUqwaxLnWs
 
 ]
@@ -1073,3 +1075,10 @@ Ver: https://www.youtube.com/watch?v=tNIpEZLv_eg e https://www.youtube.com/watch
 
 Fonte: [Batch Normalization: Accelerating Deep Network Training by Reducing Internal Covariate Shift](https://arxiv.org/pdf/1502.03167v3.pdf)
 ]
+
+---
+
+class: middle, center
+
+exercício 08: exercicios/08-dropout-batch_norm.R
+
