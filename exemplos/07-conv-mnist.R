@@ -1,7 +1,7 @@
 # Dataset
 
 base <- dataset_mnist()
-x <- array_reshape(base$train$x, dim = c(60000, 28, 28, 1))
+x <- array_reshape(base$train$x/256, dim = c(60000, 28, 28, 1))
 y <- to_categorical(base$train$y)
 
 dim(x)

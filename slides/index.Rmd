@@ -912,6 +912,7 @@ A principal diferença com relação à MLP é que a as camadas 'densas' aprende
 Fonte: Deep Learning with R
 
 ]
+
 ---
 
 ## CNN's 
@@ -1032,3 +1033,43 @@ class: middle, center
 
 exemplo 07 - exemplos/07-conv-mnist.R
 
+---
+
+class: middle, center
+
+exercício 07: exercícios/07-cifar-conv.R
+
+---
+
+## Dropout
+
+- Técnica de regularização bastante utilizada em deep learning.
+
+- Consiste em aleatóriamente zerar alguns outputs.
+
+- É parametrizado por uma probabilidade $p$ de zerar alguns parâmetros.
+
+![:scale 50%](img/Screen Shot 2020-05-18 at 15.27.12.png)
+
+Fonte: [Dropout: A Simple Way to Prevent Neural Networks from
+Overfitting](http://jmlr.org/papers/volume15/srivastava14a/srivastava14a.pdf)
+
+---
+
+## Batch normalization
+
+.pull-left[
+
+- Outra técnica que ajuda bastante a ajustar modelos em deep lerning.
+
+- Consiste em normalizar os valores das 'hidden units'.
+
+Ver: https://www.youtube.com/watch?v=tNIpEZLv_eg e https://www.youtube.com/watch?v=nUUqwaxLnWs
+
+]
+
+.pull-right[
+![:scale 75%](img/Screen Shot 2020-05-18 at 15.43.41.png)
+
+Fonte: [Batch Normalization: Accelerating Deep Network Training by Reducing Internal Covariate Shift](https://arxiv.org/pdf/1502.03167v3.pdf)
+]
