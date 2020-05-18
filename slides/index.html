@@ -1033,6 +1033,65 @@ class: middle, center
 
 exercício 08: exercicios/08-dropout-batch_norm.R
 
+---
+
+## Modelos pré-treinados
+
+- Reutilizar a parte 'feature learning' do diagrama abaixo em outros bancos de dados.
+
+![](img/1_vkQ0hXDaQv57sALXAJquxA.jpeg)
+
+---
+
+## Modelos pré-treinados
+
+- Um modelo inteiro é treinado em um banco de dados X.
+
+- Salvamos apenas a parte 'feature learning'.
+
+- Em um outro banco de dados usamos as 'features' que foram aprendidas no banco de dados X e apenas ajustamos a parte de classificar para um outro banco de dados.
+
+- Também chamamos de transfer learning.
+
+![:scale 85%](img/1_vkQ0hXDaQv57sALXAJquxA.jpeg)
+
+---
+
+## Modelos pré-treinados
+
+As vantagens são:
+
+- Reduz muito o tempo para treinar um modelo.
+
+- Faz com que seja possível treinar modelos em bases menores.
+
+Desvantagens:
+
+- Tem que tomar cuidado com a base em que eles foram treinados inicialmente.
+
+---
+
+## tfhub
+
+- Um [pacote de R](https://github.com/rstudio/tfhub) para fazer transfer learning.Possibilita usar modelos pré treinados disponíveis no [tfhub.dev](https://tfhub.dev/).
+
+- É fácil de usar! Só mais uma 'camada' do Keras
+
+
+```r
+url &lt;-  "https://tfhub.dev/google/tf2-preview/mobilenet_v2/feature_vector/2"
+layer_hub(handle = url)
+```
+
+.center[
+![:scale 50%](img/Screen Shot 2020-05-18 at 16.46.02.png)
+]
+
+---
+
+class: middle, center
+
+exemplo 08: exemplos/tfhub.R
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
