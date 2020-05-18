@@ -1088,6 +1088,8 @@ exercício 08: exercicios/08-dropout-batch_norm.R
 
 - Reutilizar a parte 'feature learning' do diagrama abaixo em outros bancos de dados.
 
+- O conceito não vale apenas p/ imagens mas para qualquer modelo em deep learning.
+
 ![](img/1_vkQ0hXDaQv57sALXAJquxA.jpeg)
 
 ---
@@ -1138,3 +1140,6 @@ layer_hub(handle = url)
 class: middle, center
 
 exemplo 08: exemplos/tfhub.R
+
+---
+
