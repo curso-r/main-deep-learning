@@ -795,7 +795,7 @@ cross_entropy &lt;- function(y_hat) {
 
 ---
 
-exercicio 06: exercicios/06-mnist.R
+exercicio 06: exercicios/06-mlp-mnist.R
 
 ---
 
@@ -955,6 +955,33 @@ Em seguida somamos os outputs de cada canal:
 ![](img/1_CYB2dyR3EhFs1xNLK8ewiA.gif)
 
 Fonte: [Intuitively Understanding Convolutions for Deep Learning](https://towardsdatascience.com/intuitively-understanding-convolutions-for-deep-learning-1f6f42faee1)
+
+---
+
+## Max Pool
+
+Parece com o que fazemos na convolução, mas em vez disso calculamos o máximo dos valores de cada janela.
+
+![](img/1_Fw-ehcNBR9byHtho-Rxbtw.gif)
+
+Fonte: [Intuitively Understanding Convolutions for Deep Learning](https://towardsdatascience.com/intuitively-understanding-convolutions-for-deep-learning-1f6f42faee1)
+
+---
+
+
+## Resumo:
+
+- Mesclamos algumas camadas de convolução e max pooling, diminuindo a altura e largura das imagens e aumentando a profundidade.
+
+- Depois transformamos em uma matriz e fazemos um modelo de classificação logístico usual.
+
+![](img/1_vkQ0hXDaQv57sALXAJquxA.jpeg)
+
+---
+
+class: middle, center
+
+exemplo 07 - exemplos/07-conv-mnist.R
 
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
