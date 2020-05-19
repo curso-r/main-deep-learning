@@ -2,8 +2,8 @@
 
 library(keras)
 
-base <- dataset_mnist()
-x <- array_reshape(base$train$x/256, dim = c(60000, 28, 28, 1))
+base <- dataset_cifar10()
+x <- base$train$x/256
 y <- to_categorical(base$train$y)
 
 dim(x)
@@ -11,14 +11,17 @@ dim(y)
 
 # Model definition ---------------------------------------------
 
-input <- layer_input(shape = c(28, 28, 1))
+library(tfhub)
+
+input <- layer_input(shape = c(32, 32, 3))
 
 output <- input %>% 
-  layer_conv_2d(kernel_size = c(3,3), filters = 32, activation = "relu") %>% 
-  layer_max_pooling_2d(pool_size = c(2,2)) %>% 
-  layer_conv_2d(kernel_size = c(3,3), filters = 64, activation = "relu") %>% 
-  layer_max_pooling_2d(pool_size = c(2,2)) %>% 
-  layer_flatten() %>% 
+  layer_lambda(f = function(x) tf$image$resize(x, size = c(96L,96L))) %>% 
+  layer_hub(
+    handle = "https://tfhub.dev/google/imagenet/mobilenet_v2_075_96/feature_vector/4", 
+    # handle = "https://tfhub.dev/tensorflow/efficientnet/b4/feature-vector/1",
+    trainable = FALSE
+  ) %>% 
   layer_dense(128, activation = "relu") %>% 
   layer_dense(10, activation = "softmax") 
   
