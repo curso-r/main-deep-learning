@@ -1,0 +1,39 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+
+# Deep Learning com R
+
+- [slides](/slides)
+
+# Exemplos
+
+```{r, echo = FALSE}
+knitr::kable(
+  tibble::tibble(
+    exemplo = list.files("exemplos/"),
+    link = paste0("https://curso-r.github.io/deep-learning-com-r-mestre/exemplos/", exemplo)
+  )
+)
+```
+
+# Exercicios
+
+```{r, echo = FALSE}
+knitr::kable(
+  tibble::tibble(
+    exercicio = list.files("exercicios/"),
+    link = paste0("https://curso-r.github.io/deep-learning-com-r-mestre/exercicios/", exercicio)
+  )
+)
+```
