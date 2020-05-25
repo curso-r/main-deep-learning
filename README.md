@@ -3,7 +3,7 @@
 
 # Deep Learning com R
 
-  - [slides](/slides)
+  - [slides](https://curso-r.github.io/deep-learning-com-r-mestre/slides/)
 
 # Exemplos
 
