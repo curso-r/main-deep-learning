@@ -30,9 +30,82 @@ library(tidyverse)
 ```
 
 ---
+
+## Curso-R
+
+![:scale 85%](img/professores.png)
+
+---
+
+## Linha do tempo
+
+<center>
+<img src="img/linha_do_tempo.png" width = 35%></img>
+</center>
+
+---
+
+## Nossos cursos
+
+.pull-left[
+<div class="container center">
+  <div class="card">
+    <h2>Programação em R</h2>
+    <hr style = "background-color: #3bb44a;"/>
+    <p><a href = "https://www.curso-r.com/cursos/r4ds-1/">R para Ciência de dados I</a></p>
+        <p><a href = "https://www.curso-r.com/cursos/r4ds-2/">R para Ciência de dados II</a></p>
+  </div>
+</div>
+
+<br>
+
+<div class="container center">
+  <div class="card">
+    <h2>Modelagem</h2>
+    <hr style = "background-color: #996699;"/>
+    <p><a href = "https://www.curso-r.com/cursos/regressao/">Regressão Linear</a></p>
+    <p><a href = "https://www.curso-r.com/cursos/intro-machine-learning/">Machine Learning</a></p>
+    <p><a href = "https://www.curso-r.com/cursos/xgboost/">XGBoost</a></p>
+    <p><a href = "https://www.curso-r.com/cursos/deep-learning/">Deep Learning</a></p>
+  </div>
+</div>
+]
+
+
+.pull-right[
+<div class="container center">
+  <div class="card">
+    <h2>Extração de dados</h2>
+    <hr style = "background-color: #eeba30;"/>
+    <p><a href = "https://www.curso-r.com/cursos/web-scraping-1/">Web scraping I</a></p>
+        <p><a href = "https://www.curso-r.com/cursos/web-scraping-2/">Web scraping II</a></p>
+  </div>
+</div>
+
+<br>
+
+<div class="container center">
+  <div class="card">
+    <h2>Comunicação e automação</h2>
+    <hr style = "background-color: #ff6699;"/>
+    <p><a href = "https://www.curso-r.com/cursos/dashboards/">Dashboards com R</a></p>
+        <p><a href = "https://www.curso-r.com/cursos/deploy/">Deploy</a></p>
+  </div>
+</div>
+]
+
+
+---
+
 ## Nesse curso vamos falar de
 
-TODO
+- Regressão linear e logística
+- Multi-layer perceptrons
+- Redes neurais convolucionais
+- Modelos pré-treinados para imagens
+- Redes neurais para textos
+- Redes neurais recorrentes
+- Modelos pré-treinados para textos
 
 ---
 
@@ -422,6 +495,18 @@ $$w_{(k+1)} = w_{(k)} - \alpha \times \frac{1}{b} \sum_{i = 1}^b \left( 2(y_i - 
 ]
 
 Fonte: https://www.stat.cmu.edu/~ryantibs/convexopt/lectures/stochastic-gd.pdf
+
+---
+
+## Variações
+
+- Existem outras variações do SGD, cada tentando resolver um problema diferente.
+
+- [Esse artigo](https://ruder.io/optimizing-gradient-descent/) é um ótimo resumo de todas as versões que existem. 
+
+- Não existe um que é extremamente melhor do que os outros.
+
+- Além do SGD, os mais usados são SGD com momentum, adam e rmsprop.
 
 ---
 
@@ -1169,3 +1254,94 @@ exemplo 08: exemplos/tfhub.R
 ![:scale 30%](img/Screen_Shot_2018-03-24_at_10.48.42_PM.png)
 
 - Face recognition: uso de [triplet loss function](https://en.wikipedia.org/wiki/Triplet_loss).
+
+---
+
+class: middle, center, inverse
+
+# Redes neurais em textos
+
+---
+
+## Textos como dados
+
+![](img/Screen Shot 2020-05-25 at 14.08.54.png)
+
+---
+
+## Cada texto, um vetor
+
+![](img/Screen Shot 2020-05-25 at 14.09.27.png)
+
+---
+
+class: middle, center
+
+exemplo 09: examples/09-text-vectorization.R
+
+---
+
+## Embedding's (ou Encoding)
+
+- Até agora, cada palavra virou um número inteiro.
+
+- O problema disso é que esses números inteiros representam categorias e não têm as principais de serem números.
+
+- Não faz sentido fazer operações matemáticas como multiplicação e adição com esses números. 
+
+- Não existe uma noção de proximidade entre as palavras.
+
+---
+
+## One-hot encoding
+
+- Cada texto é repsentado por uma matriz
+
+![:scale 75%](img/Screen Shot 2020-05-25 at 14.31.13.png)
+
+---
+
+## One-hot encoding
+
+- O problema de fazer 'one-hot encoding' é principalmente computacional.
+
+- Imagine um vocabulário de 20k palavras, faz com que a matriz tenha 20k colunas, a maioria dos valores sendo **0**, sem trazer
+muita informação.
+
+- A distância entre todas as palavras é igual.
+
+---
+
+## Embedding
+
+- Assume-se cada palavra endo representada por um vetor de pesos de dimensão $d$.
+
+![:scale 75%](img/Screen Shot 2020-05-25 at 14.44.36.png)
+
+
+---
+
+class: middle, center
+
+exemplo 10: examples/10-embedding.R
+
+---
+
+class: middle, center
+
+exemplo 11: examples/11-avg-pooling.R
+
+---
+
+class: middle, center
+
+exercício 10: exercicios/10-sarcasm.R
+
+---
+
+![:scale 90%](img/simple-rnn.png)
+
+---
+
+![:scale 90%](img/simple-rnn 1.png)
+
