@@ -20,7 +20,7 @@ y <- W1 * x1 + W2 * x2 + B
 # Model definition ---------------------------------------------
 
 model <- function(w1, w2, b, x1, x2) {
-  w1 * x + w2 * x2 + b
+  w1 * x1 + w2 * x2 + b
 }
 
 loss <- function(y, y_hat) {
@@ -37,7 +37,7 @@ dyhat_dw1 <- function(w1) {
   x1
 }
 
-dyhat_dw1 <- function(w2) {
+dyhat_dw2 <- function(w2) {
   x2
 }
 
