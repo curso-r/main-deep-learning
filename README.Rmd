@@ -37,3 +37,14 @@ knitr::kable(
   )
 )
 ```
+
+# Respostas
+
+```{r, echo = FALSE}
+knitr::kable(
+  tibble::tibble(
+    exercicio = list.files("respostas/"),
+    link = paste0("https://curso-r.github.io/deep-learning-com-r-mestre/respostas/", exercicio)
+  )
+)
+```

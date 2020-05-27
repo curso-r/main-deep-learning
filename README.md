@@ -37,3 +37,10 @@
 | 08-dropout-batch-norm.R      | <https://curso-r.github.io/deep-learning-com-r-mestre/exercicios/08-dropout-batch-norm.R>      |
 | 09-fruit360.R                | <https://curso-r.github.io/deep-learning-com-r-mestre/exercicios/09-fruit360.R>                |
 | 10-sarcasm.R                 | <https://curso-r.github.io/deep-learning-com-r-mestre/exercicios/10-sarcasm.R>                 |
+
+# Respostas
+
+| exercicio              | link                                                                                    |
+| :--------------------- | :-------------------------------------------------------------------------------------- |
+| 01-linear-regression.R | <https://curso-r.github.io/deep-learning-com-r-mestre/respostas/01-linear-regression.R> |
+| 02-mini-batch-sgd.R    | <https://curso-r.github.io/deep-learning-com-r-mestre/respostas/02-mini-batch-sgd.R>    |
