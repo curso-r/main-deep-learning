@@ -1,6 +1,6 @@
 # Esse script tem uma pequena modificação com relação ao exemplo 01.
 # Agora, ao invés de termos somente uma variável `x`, temos 2.
-# O objetivo aqui é escrever o SGD de forma a estimar os três parâmetros
+# O objetivo aqui é escrever o GD de forma a estimar os três parâmetros
 # do modelo.
 
 

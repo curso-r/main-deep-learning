@@ -41,9 +41,12 @@ dyhat_db <- function(b, x) {
 epochs <- 10
 batch_size <- 32
 
+w <- runif(1)
+b <- 0
+
 for (epoch in 1:epochs) {
   indices <- 1:n
-  while (!length(indices) < batch_size) {
+  while (length(indices) > batch_size) {
     i <- sample(indices, size = batch_size)
     indices <- indices[!indices %in% i]
     
