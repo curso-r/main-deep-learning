@@ -40,7 +40,10 @@
 
 # Respostas
 
-| exercicio              | link                                                                                    |
-| :--------------------- | :-------------------------------------------------------------------------------------- |
-| 01-linear-regression.R | <https://curso-r.github.io/deep-learning-com-r-mestre/respostas/01-linear-regression.R> |
-| 02-mini-batch-sgd.R    | <https://curso-r.github.io/deep-learning-com-r-mestre/respostas/02-mini-batch-sgd.R>    |
+| exercicio                    | link                                                                                          |
+| :--------------------------- | :-------------------------------------------------------------------------------------------- |
+| 01-linear-regression.R       | <https://curso-r.github.io/deep-learning-com-r-mestre/respostas/01-linear-regression.R>       |
+| 02-mini-batch-sgd.R          | <https://curso-r.github.io/deep-learning-com-r-mestre/respostas/02-mini-batch-sgd.R>          |
+| 03-keras-linear-regression.R | <https://curso-r.github.io/deep-learning-com-r-mestre/respostas/03-keras-linear-regression.R> |
+| 04-boston-housing.R          | <https://curso-r.github.io/deep-learning-com-r-mestre/respostas/04-boston-housing.R>          |
+| 05-boston-housing-logistic.R | <https://curso-r.github.io/deep-learning-com-r-mestre/respostas/05-boston-housing-logistic.R> |
