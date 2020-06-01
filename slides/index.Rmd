@@ -1326,6 +1326,12 @@ exemplo 10: examples/10-embedding.R
 
 ---
 
+## Avg pooling
+
+![](img/Screen Shot 2020-06-01 at 15.31.59.png)
+
+---
+
 class: middle, center
 
 exemplo 11: examples/11-avg-pooling.R
@@ -1338,9 +1344,52 @@ exercício 10: exercicios/10-sarcasm.R
 
 ---
 
+## O problema de não considerar a sequência
+
+- Tirar as médias da função da ativação fazem com que a gente perda a noção de
+sequências, o que pode ser problemático.
+
+- Existem redes neurais que conseguem manter a noção de sequência para
+fazer a previsão.
+
+---
+
 ![:scale 90%](img/simple-rnn.png)
 
 ---
 
 ![:scale 90%](img/simple-rnn 1.png)
 
+---
+
+class: middle, center
+
+exemplo 12: exemplos/12-simple-rnn
+
+---
+
+## Problemas das RNN's simples
+
+- Vanishing gradient problem: é como se estivéssemos encadeando muitas camadas densas. Conforme aumentamos o tamanho das sequências, fica cada vez mais difícil de um input do final ter efeito sobre os parâmteros das primmeiras camadas pois o gradiente vai ficando muito pequeno.
+
+![](img/Screen Shot 2020-06-01 at 15.13.10.png)
+
+---
+
+## LSTM's
+
+![](img/LSTM3-chain.png)
+
+Fonte: https://colah.github.io/posts/2015-08-Understanding-LSTMs/
+
+---
+
+class: middle, center
+
+exemplo 13: exemplos/13-simple-lstms
+
+---
+
+class: middle, center
+
+exemplo 14: exemplos/14-lstm
