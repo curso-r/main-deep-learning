@@ -1317,6 +1317,11 @@ muita informação.
 
 ![:scale 75%](img/Screen Shot 2020-05-25 at 14.44.36.png)
 
+---
+
+## Embedding
+
+![:scale 50%](img/Screen Shot 2020-06-01 at 15.36.17.png)
 
 ---
 
@@ -1328,7 +1333,7 @@ exemplo 10: examples/10-embedding.R
 
 ## Avg pooling
 
-![](img/Screen Shot 2020-06-01 at 15.31.59.png)
+![:scale 75%](img/Screen Shot 2020-06-01 at 15.31.59.png)
 
 ---
 
@@ -1393,3 +1398,45 @@ exemplo 13: exemplos/13-simple-lstms
 class: middle, center
 
 exemplo 14: exemplos/14-lstm
+
+---
+
+class: middle, center
+
+exercício 11: exercícios/11-lstm-sarcasm.R
+
+---
+
+## Embeddings pré treinadas
+
+- Ao invés de inicializar a matriz de embeddings de forma aleatória, usamos os pesos obtidos em outros modelos.
+
+- Um dos mais famosos é o GLOVE: um método não supervisionado para obtenção desses pesos: https://nlp.stanford.edu/projects/glove/
+
+![](img/Screen Shot 2020-06-01 at 16.58.21.png)
+
+---
+
+class: middle, center
+
+exemplo 15: exemplos/15-pre-trained-embedding.R
+
+---
+
+class: middle, center
+
+exercicio 12: exercicios/12-pre-trained-sarcasm.R
+
+---
+
+LSTM bidirecional
+
+![](img/1_6QnPUSv_t9BY9Fv8_aLb-Q.png)
+
+Fonte: https://towardsdatascience.com/understanding-bidirectional-rnn-in-pytorch-5bd25a5dd66
+
+---
+
+class: middle, center
+
+exemplo 16: exemplos/16-bidirecional.R
