@@ -52,3 +52,7 @@
 | 03-keras-linear-regression.R | <https://curso-r.github.io/deep-learning-com-r-mestre/respostas/03-keras-linear-regression.R> |
 | 04-boston-housing.R          | <https://curso-r.github.io/deep-learning-com-r-mestre/respostas/04-boston-housing.R>          |
 | 05-boston-housing-logistic.R | <https://curso-r.github.io/deep-learning-com-r-mestre/respostas/05-boston-housing-logistic.R> |
+| 06-mlp-mnist.R               | <https://curso-r.github.io/deep-learning-com-r-mestre/respostas/06-mlp-mnist.R>               |
+| 07-cifar-conv.R              | <https://curso-r.github.io/deep-learning-com-r-mestre/respostas/07-cifar-conv.R>              |
+| 08-dropout-batch-norm.R      | <https://curso-r.github.io/deep-learning-com-r-mestre/respostas/08-dropout-batch-norm.R>      |
+| 09-fruit360.R                | <https://curso-r.github.io/deep-learning-com-r-mestre/respostas/09-fruit360.R>                |
