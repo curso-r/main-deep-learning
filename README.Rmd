@@ -16,7 +16,7 @@ knitr::opts_chunk$set(
 
 - [slides](https://curso-r.github.io/deep-learning-com-r-mestre/slides/)
 
-# Exemplos
+# Exemplos 
 
 ```{r, echo = FALSE}
 knitr::kable(

@@ -5,7 +5,7 @@ library(keras)
 # Data ------------------------------------------------------------
 
 n <- 10000
-l <- 5
+l <- 10
 
 cresc <- sample(c(1,0), size = n, replace = TRUE)
 x <- array(dim = c(n, l, 1))
@@ -30,7 +30,8 @@ output <- input %>%
     input_shape = c(5,1), 
     use_bias = FALSE,
     unit_forget_bias = FALSE,
-    recurrent_activation = "sigmoid"
+    recurrent_activation = "tanh",
+    activation = "tanh"
   ) %>% 
   layer_activation("sigmoid")
 
@@ -38,11 +39,11 @@ model <- keras_model(input, output)
 
 model %>% compile(
   loss = "binary_crossentropy", 
-  optimizer = "adam",
+  optimizer = "sgd",
   metrics = "accuracy"
 )
 
-model %>% fit(x = x, y = cresc, epochs = 10)
+model %>% fit(x = x, y = cresc, epochs = 50, batch_size = 100)
 
 # Manual calc ------------------------------------------------------
 
@@ -59,12 +60,12 @@ x_ <- x[1,,]
 
 for (t in 1:l) {
   
-  i     <- sigm(w[[2]][1,1]*s + w[[1]][1,1]*x_[t])
-  f     <- sigm(w[[2]][1,2]*s + w[[1]][1,2]*x_[t])
+  i     <- tanh(w[[2]][1,1]*s + w[[1]][1,1]*x_[t])
+  f     <- tanh(w[[2]][1,2]*s + w[[1]][1,2]*x_[t])
   c_hat <- tanh(w[[2]][1,3]*s + w[[1]][1,3]*x_[t])
   
   c <- f*c + i*c_hat
-  o <- sigm(s*w[[2]][1,4] + w[[1]][1,4]*x_[t])
+  o <- tanh(s*w[[2]][1,4] + w[[1]][1,4]*x_[t])
   s <- o*tanh(c)
   
 }
@@ -77,8 +78,5 @@ model(x[1,,,drop=FALSE])
 ggplot2::qplot(predict(model, x), cresc, geom = "jitter")
 model(x[1:10,,,drop=FALSE])
 
-cresc[1:10]
 
-test_x <- array(c(1, rep(0, l -  1)), dim = c(1, l, 1))
-model(test_x)
 

@@ -24,7 +24,12 @@
 | 13-simple-lstm.R           | <https://curso-r.github.io/deep-learning-com-r-mestre/exemplos/13-simple-lstm.R>           |
 | 14-lstm.R                  | <https://curso-r.github.io/deep-learning-com-r-mestre/exemplos/14-lstm.R>                  |
 | 15-pre-trained-embedding.R | <https://curso-r.github.io/deep-learning-com-r-mestre/exemplos/15-pre-trained-embedding.R> |
-| 16-bidirecional.R          | <https://curso-r.github.io/deep-learning-com-r-mestre/exemplos/16-bidirecional.R>          |
+| 15-simple-gru.R            | <https://curso-r.github.io/deep-learning-com-r-mestre/exemplos/15-simple-gru.R>            |
+| 16-gru.R                   | <https://curso-r.github.io/deep-learning-com-r-mestre/exemplos/16-gru.R>                   |
+| 17-pre-trained-embedding.R | <https://curso-r.github.io/deep-learning-com-r-mestre/exemplos/17-pre-trained-embedding.R> |
+| 18-encadeando-lstms.R      | <https://curso-r.github.io/deep-learning-com-r-mestre/exemplos/18-encadeando-lstms.R>      |
+| 19-bidirecional.R          | <https://curso-r.github.io/deep-learning-com-r-mestre/exemplos/19-bidirecional.R>          |
+| 20-quora.R                 | <https://curso-r.github.io/deep-learning-com-r-mestre/exemplos/20-quora.R>                 |
 
 # Exercicios
 
@@ -42,6 +47,7 @@
 | 10-sarcasm.R                 | <https://curso-r.github.io/deep-learning-com-r-mestre/exercicios/10-sarcasm.R>                 |
 | 11-lstm-sarcasm.R            | <https://curso-r.github.io/deep-learning-com-r-mestre/exercicios/11-lstm-sarcasm.R>            |
 | 12-pre-trained-sarcasm.R     | <https://curso-r.github.io/deep-learning-com-r-mestre/exercicios/12-pre-trained-sarcasm.R>     |
+| 13-bidirecional-sarcasm.R    | <https://curso-r.github.io/deep-learning-com-r-mestre/exercicios/13-bidirecional-sarcasm.R>    |
 
 # Respostas
 
