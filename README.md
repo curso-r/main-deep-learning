@@ -67,3 +67,7 @@
 | 08-dropout-batch-norm.R      | <https://curso-r.github.io/deep-learning-com-r-mestre/respostas/08-dropout-batch-norm.R>      |
 | 09-fruit360.R                | <https://curso-r.github.io/deep-learning-com-r-mestre/respostas/09-fruit360.R>                |
 | 10-sarcasm.R                 | <https://curso-r.github.io/deep-learning-com-r-mestre/respostas/10-sarcasm.R>                 |
+| 11-lstm-sarcasm.R            | <https://curso-r.github.io/deep-learning-com-r-mestre/respostas/11-lstm-sarcasm.R>            |
+| 12-pre-trained-sarcasm.R     | <https://curso-r.github.io/deep-learning-com-r-mestre/respostas/12-pre-trained-sarcasm.R>     |
+| 13-bidirecional-sarcasm.R    | <https://curso-r.github.io/deep-learning-com-r-mestre/respostas/13-bidirecional-sarcasm.R>    |
+| 14-quora.R                   | <https://curso-r.github.io/deep-learning-com-r-mestre/respostas/14-quora.R>                   |
