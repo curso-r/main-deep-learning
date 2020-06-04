@@ -1,5 +1,5 @@
 
-<!-- README.md is generated from README.Rmd. Please edit that file -->
+<!-- README.md is gener ated from README.Rmd. Please edit that file -->
 
 # Deep Learning com R
 
@@ -48,6 +48,7 @@
 | 11-lstm-sarcasm.R            | <https://curso-r.github.io/deep-learning-com-r-mestre/exercicios/11-lstm-sarcasm.R>            |
 | 12-pre-trained-sarcasm.R     | <https://curso-r.github.io/deep-learning-com-r-mestre/exercicios/12-pre-trained-sarcasm.R>     |
 | 13-bidirecional-sarcasm.R    | <https://curso-r.github.io/deep-learning-com-r-mestre/exercicios/13-bidirecional-sarcasm.R>    |
+| 14-quora.R                   | <https://curso-r.github.io/deep-learning-com-r-mestre/exercicios/14-quora.R>                   |
 
 # Respostas
 
@@ -62,3 +63,4 @@
 | 07-cifar-conv.R              | <https://curso-r.github.io/deep-learning-com-r-mestre/respostas/07-cifar-conv.R>              |
 | 08-dropout-batch-norm.R      | <https://curso-r.github.io/deep-learning-com-r-mestre/respostas/08-dropout-batch-norm.R>      |
 | 09-fruit360.R                | <https://curso-r.github.io/deep-learning-com-r-mestre/respostas/09-fruit360.R>                |
+| 10-sarcasm.R                 | <https://curso-r.github.io/deep-learning-com-r-mestre/respostas/10-sarcasm.R>                 |
