@@ -26,9 +26,40 @@ vocab <- get_vocabulary(vectorize)
 
 # Preparar camadas de embedding -----------
 
+glove <- read_delim(
+  unz("glove.zip", sprintf("glove.6B.%dd.txt", 50)),
+  delim = " ", 
+  col_names = FALSE, 
+  quote = ""
+)
+
+nms <- glove$X1
+
+glove <- dplyr::select(glove, -X1)
+glove <- as.matrix(glove)
+
+rownames(glove) <- nms
+
+
+get_embedding_weights <- function(vocab, pre_trained) {
+  idx <- match(vocab, rownames(pre_trained))
+  x <- pre_trained[idx,]
+  x[is.na(x)] <- 0
+  x <- rbind(
+    rep(0, ncol(x)), # padding
+    rep(0, ncol(x)), # oov token
+    x
+  )
+  x
+}
+
+embedding_matrix <- get_embedding_weights(vocab, glove)
+
 embedding <- layer_embedding(
-  input_dim = length(vocab) + 2, 
-  output_dim = 256
+  input_dim = nrow(embedding_matrix),
+  output_dim = ncol(embedding_matrix),
+  weights = list(embedding_matrix),
+  trainable = FALSE
 )
 
 seq_embedding <- layer_lstm(
@@ -50,13 +81,14 @@ e2 <- input2 %>%
   embedding() %>% 
   seq_embedding()
 
+
 output <- layer_dot(list(e1, e2), axes = 1) %>% 
   layer_dense(units = 1, activation = "sigmoid")
 
 model <- keras_model(list(input1, input2), output)
 
 model %>% compile(
-  optimizer = optimizer_sgd(lr = 0.1), 
+  optimizer = "adam",
   metrics = "accuracy",
   loss = "binary_crossentropy"
 )
