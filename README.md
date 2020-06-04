@@ -30,6 +30,9 @@
 | 18-encadeando-lstms.R      | <https://curso-r.github.io/deep-learning-com-r-mestre/exemplos/18-encadeando-lstms.R>      |
 | 19-bidirecional.R          | <https://curso-r.github.io/deep-learning-com-r-mestre/exemplos/19-bidirecional.R>          |
 | 20-quora.R                 | <https://curso-r.github.io/deep-learning-com-r-mestre/exemplos/20-quora.R>                 |
+| 21-series-temporais.R      | <https://curso-r.github.io/deep-learning-com-r-mestre/exemplos/21-series-temporais.R>      |
+| 22-unet.R                  | <https://curso-r.github.io/deep-learning-com-r-mestre/exemplos/22-unet.R>                  |
+| 23-captcha.R               | <https://curso-r.github.io/deep-learning-com-r-mestre/exemplos/23-captcha.R>               |
 
 # Exercicios
 
