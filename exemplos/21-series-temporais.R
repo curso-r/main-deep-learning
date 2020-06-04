@@ -53,8 +53,8 @@ df <- df %>%
 
 # Preparando os dados ----------------
 
-historico <- 365*2*24
-previsao <- 7*24
+historico <- 30*24
+previsao <- 24
 pulos <- 3*24
 
 janelas <- seq(
@@ -67,10 +67,10 @@ length(janelas)
 data <- df %>% arrange(date) %>% select(-date) %>% as.matrix()
 
 x <- array(NA, dim = c(length(janelas), historico, ncol(data)))
-y <- array(NA, dim = c(length(janelas), previsao, ncol(data)))
+y <- array(NA, dim = c(length(janelas), previsao, ncol(data) - 4))
 
-medias <- apply(data[1:historico,], 2, mean)
-sds <- apply(data[1:historico,], 2, sd)
+medias <- apply(data[1:(24*365),], 2, mean)
+sds <- apply(data[1:(24*365),], 2, sd)
 
 for (i in seq_along(janelas)) {
   
@@ -79,7 +79,7 @@ for (i in seq_along(janelas)) {
   x[i,,] <- scale(data[(janela - historico + 1):janela,], center = medias, 
                   scale = sds)
   y[i,,] <- scale(data[(janela + 1):(janela + previsao),], center = medias,
-                  scale = sds)
+                  scale = sds)[,-c(8:11)]
   
 }
 
@@ -90,27 +90,58 @@ library(keras)
 input <- layer_input(shape = c(historico, ncol(data)))
 output <- input %>% 
   layer_lstm(units = 32, return_sequences = TRUE) %>% 
-  layer_average_pooling_1d(pool_size = 24) %>% 
-  layer_lstm(units = 128, return_sequences = TRUE) %>% 
-  layer_average_pooling_1d(pool_size = 24) %>% 
-  layer_flatten() %>%
+  layer_lstm(units = 128) %>% 
   layer_dense(units = 512, activation = "relu") %>% 
-  layer_dense(units = previsao * ncol(data)) %>% 
-  layer_reshape(target_shape = c(previsao, ncol(data)))
+  layer_dense(units = previsao * (ncol(data) - 4)) %>% 
+  layer_reshape(target_shape = c(previsao, ncol(data) -4))
   
 model <- keras_model(input, output)
 
-model %>% compile(loss = "mse", optimizer = "sgd")
+summary(model)
+
+model %>% compile(loss = "mse", optimizer = "adam")
 
 # Ajuste do modelo ---------------------------
 
-idx <- 1:300
+id <- 1:500
 
 model %>% 
   fit(x[id,,], y[id,,], batch_size = 10, shuffle = FALSE,
-      validation_data = list(x[-id,,], y[-id,,]))
+      validation_data = list(x[-id,,], y[-id,,]), epochs = 10)
 
 
+x_test <- x[-id,,]
+y_test <- y[-id,,]
+pred <- predict(model, x_test)
+
+obs <- 3
+
+historico <- 
+  x_test[obs,,1:7] %>% 
+  as.data.frame() %>% 
+  mutate(b = "real") %>% 
+  mutate(data = row_number())
+
+predito <- 
+  pred[obs,,] %>% 
+  as.data.frame() %>% 
+  mutate(b = "predito") %>% 
+  mutate(data = max(historico$data) + row_number())
+
+observado <- 
+  y[obs,,] %>% 
+  as.data.frame() %>% 
+  mutate(b = "real") %>% 
+  mutate(data = max(historico$data) + row_number())
+
+bind_rows(historico, predito, observado) %>% 
+  pivot_longer(cols = c(-data, -b), names_to = "col", values_to = "val") %>% 
+  ggplot(aes(x = data, y = val)) +
+  geom_line(aes(colour = b)) +
+  facet_wrap(~col, ncol = 1, scales = "free_y")
+  
+  
+  
 
 
   
