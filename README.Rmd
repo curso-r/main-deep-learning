@@ -1,8 +1,10 @@
 ---
 output: github_document
---- 
-  
-<!-- README.md is gener ated from README.Rmd. Please edit that file --> 
+---
+
+# Deep Learning
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
 
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
@@ -11,40 +13,27 @@ knitr::opts_chunk$set(
 )
 ```
 
+Repositório principal do curso Deep Learning.
 
-# Deep Learning com R
+Inscreva-se no curso: https://www.curso-r.com/cursos/deep-learning
 
-- [slides](https://curso-r.github.io/deep-learning-com-r-mestre/slides/)
+**Acesse o material completo do curso escolhendo uma das turmas abaixo**.
 
-# Exemplos 
-
-```{r, echo = FALSE}
-knitr::kable(
-  tibble::tibble(
-    exemplo = list.files("exemplos/"),
-    link = paste0("https://curso-r.github.io/deep-learning-com-r-mestre/exemplos/", exemplo)
-  )
-)
+```{r, echo = FALSE, message = FALSE, warning = FALSE}
+knitr::kable(CursoR:::listar_turmas_recentes("deep-learning"))
 ```
 
-# Exercicios
+# Ementa
 
-```{r, echo = FALSE}
-knitr::kable(
-  tibble::tibble(
-    exercicio = list.files("exercicios/"),
-    link = paste0("https://curso-r.github.io/deep-learning-com-r-mestre/exercicios/", exercicio)
-  )
-)
-```
+- **Introdução**
+  - O que é e quando utilizar Deep Learning
+  - O que são redes neurais profundas
+- **Ajuste**
+  - Ajustando modelos de deep learning no R
+  - O pacote `keras`
+  - Técnicas de regularização
+- **Arquiteturas**
+  - Redes neurais recorrentes (RNN)
+  - Redes neurais convolucionais (CNN)
+  - *Long short-term memory* (LSTM)
 
-# Respostas
-
-```{r, echo = FALSE}
-knitr::kable(
-  tibble::tibble(
-    exercicio = list.files("respostas/"),
-    link = paste0("https://curso-r.github.io/deep-learning-com-r-mestre/respostas/", exercicio)
-  )
-)
-```
