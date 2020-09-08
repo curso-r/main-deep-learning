@@ -951,12 +951,11 @@ Fonte: [Introduction to CNN's ](https://towardsdatascience.com/a-comprehensive-g
 
 ## Imagens como dados
 
-- Uma imagem em preto e branco (sem cinza) é uma matriz de 0's e 1's. Algo dessa
-forma:
+- Uma imagem em preto e branco pode ser representada da seguinte forma.
 
 ![:scale 100%](img/Screen Shot 2020-05-16 at 15.46.49.png)
 
-1 significa preto, e 0 significa branco.
+Cada valor representa a intensidade de cinza. 
 
 ---
 
@@ -1318,12 +1317,23 @@ muita informação.
 
 ![:scale 75%](img/Screen Shot 2020-05-25 at 14.44.36.png)
 
+---
+
+## Embedding
+
+![:scale 50%](img/Screen Shot 2020-06-01 at 15.36.17.png)
 
 ---
 
 class: middle, center
 
 exemplo 10: examples/10-embedding.R
+
+---
+
+## Avg pooling
+
+![:scale 75%](img/Screen Shot 2020-06-01 at 15.31.59.png)
 
 ---
 
@@ -1339,9 +1349,137 @@ exercício 10: exercicios/10-sarcasm.R
 
 ---
 
+## O problema de não considerar a sequência
+
+- Tirar as médias da função da ativação fazem com que a gente perda a noção de
+sequências, o que pode ser problemático.
+
+- Existem redes neurais que conseguem manter a noção de sequência para
+fazer a previsão.
+
+---
+
 ![:scale 90%](img/simple-rnn.png)
 
 ---
 
 ![:scale 90%](img/simple-rnn 1.png)
 
+---
+
+class: middle, center
+
+exemplo 12: exemplos/12-simple-rnn
+
+---
+
+## Problemas das RNN's simples
+
+- Vanishing gradient problem: é como se estivéssemos encadeando muitas camadas densas. Conforme aumentamos o tamanho das sequências, fica cada vez mais difícil de um input do final ter efeito sobre os parâmteros das primmeiras camadas pois o gradiente vai ficando muito pequeno.
+
+![](img/Screen Shot 2020-06-01 at 15.13.10.png)
+
+---
+
+## LSTM's
+
+![](img/LSTM3-chain.png)
+
+Fonte: https://colah.github.io/posts/2015-08-Understanding-LSTMs/
+
+---
+
+## LSTM'S
+
+![](img/1_VOXRGhOShoWWks6ouoDN3Q.gif)
+
+Fonte: https://towardsdatascience.com/illustrated-guide-to-lstms-and-gru-s-a-step-by-step-explanation-44e9eb85bf21
+
+---
+
+class: middle, center
+
+exemplo 13: exemplos/13-simple-lstms
+
+---
+
+class: middle, center
+
+exemplo 14: exemplos/14-lstm
+
+---
+
+class: middle, center
+
+exercício 11: exercícios/11-lstm-sarcasm.R
+
+---
+
+## GRU's
+
+![](img/1_jhi5uOm9PvZfmxvfaCektw.png)
+
+Fonte: https://towardsdatascience.com/illustrated-guide-to-lstms-and-gru-s-a-step-by-step-explanation-44e9eb85bf21
+
+---
+
+class: middle, center
+
+exemplo 15: exemplos/15-simple-gru.R
+
+---
+
+class: middle, center
+
+exemplo 16: exemplos/16-gru.R
+
+---
+
+## Embeddings pré treinadas
+
+- Ao invés de inicializar a matriz de embeddings de forma aleatória, usamos os pesos obtidos em outros modelos.
+
+- Um dos mais famosos é o GLOVE: um método não supervisionado para obtenção desses pesos: https://nlp.stanford.edu/projects/glove/
+
+![](img/Screen Shot 2020-06-01 at 16.58.21.png)
+
+---
+
+class: middle, center
+
+exemplo 17: exemplos/17-pre-trained-embedding.R
+
+---
+
+class: middle, center
+
+exercicio 12: exercicios/12-pre-trained-sarcasm.R
+
+---
+
+class: middle, center
+
+exemplo 18: exemplos/18-encadeando-lstms.R
+
+
+---
+
+RNN's bidirecionais
+
+![](img/1_6QnPUSv_t9BY9Fv8_aLb-Q.png)
+
+Fonte: https://towardsdatascience.com/understanding-bidirectional-rnn-in-pytorch-5bd25a5dd66
+
+---
+
+class: middle, center
+
+exemplo 19: exemplos/19-bidirecional.R
+
+---
+
+class: middle, center
+
+exemplo 20: exemplos/20-quora.R
+
+---

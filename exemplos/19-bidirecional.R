@@ -30,12 +30,13 @@ vocab <- get_vocabulary(vectorize)
 input <- layer_input(shape = 1, dtype = "string")
 output <-  input %>%
   vectorize() %>% 
-  layer_embedding(input_dim = length(vocab) + 2, output_dim = 32) %>% 
-  layer_max_pooling_1d(pool_size = 2)
+  layer_embedding(input_dim = length(vocab) + 2, output_dim = 32, 
+                  mask_zero = TRUE) %>% 
+  bidirectional(layer = layer_lstm(units = 256, return_sequences = TRUE)) %>% 
+  layer_global_average_pooling_1d() %>% 
   layer_dense(units = ncol(y), activation = "sigmoid")
 
 model <- keras_model(input, output)
-summary(model)
 
 model %>% 
   compile(
@@ -43,6 +44,8 @@ model %>%
     optimizer = "sgd",
     metrics = "accuracy"
   )
+
+summary(model)
 
 # ajuste
 

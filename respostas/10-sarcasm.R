@@ -1,24 +1,19 @@
-library(keras)
-library(tidyverse)
+# Ajuste um modelo para prever se a manchete é sarcástica ou não.
+# Use embeddings e global avg pooling.
+# O banco de dados pode ser obtido com o código abaixo:
 
-# Dados ------------
+library(keras)
 
 df <- readr::read_csv(
-  pins::pin("https://storage.googleapis.com/deep-learning-com-r/toxic-comments.csv")
-)
+  pins::pin("https://storage.googleapis.com/deep-learning-com-r/headlines.csv")
+  )
 
-x <- df$comment_text
-y <- as.matrix(df %>% select(-id, -comment_text))
-
-n_palavras <- stringr::str_count(x, pattern = " +") + 1
-quantile(n_palavras, c(0.5, 0.75, 0.85, 0.9, 0.95, 0.99, 1))
-
-# Layer para vetorizacao --------
+x <- df$headline
+y <- df$is_sarcastic
 
 vectorize <- layer_text_vectorization(max_tokens = 10000, output_mode = "int", 
                                       pad_to_max_tokens = TRUE,
-                                      output_sequence_length = 150
-)
+                                      output_sequence_length = 30)
 
 vectorize %>% 
   adapt(x)
@@ -28,14 +23,15 @@ vocab <- get_vocabulary(vectorize)
 # Definição do modelo -------------
 
 input <- layer_input(shape = 1, dtype = "string")
+
 output <-  input %>%
   vectorize() %>% 
   layer_embedding(input_dim = length(vocab) + 2, output_dim = 32) %>% 
-  layer_max_pooling_1d(pool_size = 2)
-  layer_dense(units = ncol(y), activation = "sigmoid")
+  layer_global_average_pooling_1d() %>% 
+  layer_dropout(0.2) %>% 
+  layer_dense(units = 1, activation = "sigmoid")
 
 model <- keras_model(input, output)
-summary(model)
 
 model %>% 
   compile(
