@@ -10,8 +10,9 @@ Inscreva-se no curso: <https://www.curso-r.com/cursos/deep-learning>
 **Acesse o material completo do curso escolhendo uma das turmas
 abaixo**.
 
-| Turma | Material | Github |
-| :---- | :------- | :----- |
+| Turma        | Material                                         | Github                                            |
+| :----------- | :----------------------------------------------- | :------------------------------------------------ |
+| Maio de 2020 | <https://curso-r.github.io/202005-deep-learning> | <https://github.com/curso-r/202005-deep-learning> |
 
 # Ementa
 
